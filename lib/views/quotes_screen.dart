@@ -10,14 +10,12 @@ class QuotesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Quotes Screen'),
-        backgroundColor: Colors.yellowAccent,
+        backgroundColor: Colors.deepPurple,
       ),
       body: FutureBuilder(
         future: QuoteServices().getQuotes(),
         builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Text('Something went wrong');
-          } else if (snapshot.hasData) {
+          if (snapshot.hasData) {
             var data = snapshot.data as List<QuoteModel>;
             return ListView.builder(
                 itemCount: data.length,
@@ -28,10 +26,13 @@ class QuotesScreen extends StatelessWidget {
                     trailing: Text(data[index].id.toString()),
                   );
                 });
+          } else if (snapshot.hasError) {
+            return Text('Something went wrong');
+
           } else {
             return Center(
               child: CircularProgressIndicator(
-                color: Colors.yellowAccent,
+                color: Colors.deepPurple,
               ),
             );
           }
