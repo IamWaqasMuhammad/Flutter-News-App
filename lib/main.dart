@@ -1,5 +1,5 @@
 import 'package:api_testing/constants/app_theme/app_theme.dart';
-import 'package:api_testing/views/home_screen.dart';
+import 'package:api_testing/views/news_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
-      home: HomeScreen(),
+      home: NewsScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
