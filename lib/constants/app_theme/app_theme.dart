@@ -17,15 +17,27 @@ class AppTheme {
       titleLarge: TextStyle(
         color: AppColors.titleActive,
         fontSize: Responsive.font(28),
+        fontWeight: FontWeight.w700,
+      ),
+      titleMedium: TextStyle(
+        color: AppColors.titleActive,
+        fontSize: Responsive.font(28),
         fontWeight: FontWeight.w600,
       ),
       bodyLarge: TextStyle(
         color: AppColors.bodyText,
         fontSize: Responsive.font(18),
+        fontWeight: FontWeight.w600
+      ),
+      bodyMedium: TextStyle(
+          color: AppColors.bodyText,
+          fontSize: Responsive.font(18),
+          fontWeight: FontWeight.w400
       ),
       labelLarge: TextStyle(
         color: AppColors.buttonText,
         fontSize: Responsive.font(14),
+        fontWeight: FontWeight.w500
       ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
@@ -51,21 +63,31 @@ class AppTheme {
       foregroundColor: AppColors.darkTitle,
       elevation: 0,
     ),
-    textTheme: GoogleFonts.poppinsTextTheme(
-      ThemeData.dark().textTheme,
-    ).copyWith(
+    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
       titleLarge: TextStyle(
-        color: AppColors.darkTitle,
+        color: AppColors.titleActive,
+        fontSize: Responsive.font(28),
+        fontWeight: FontWeight.w700,
+      ),
+      titleMedium: TextStyle(
+        color: AppColors.titleActive,
         fontSize: Responsive.font(28),
         fontWeight: FontWeight.w600,
       ),
       bodyLarge: TextStyle(
-        color: AppColors.darkBody,
-        fontSize: Responsive.font(18),
+          color: AppColors.bodyText,
+          fontSize: Responsive.font(18),
+          fontWeight: FontWeight.w600
+      ),
+      bodyMedium: TextStyle(
+          color: AppColors.bodyText,
+          fontSize: Responsive.font(18),
+          fontWeight: FontWeight.w400
       ),
       labelLarge: TextStyle(
-        color: Colors.white,
-        fontSize: Responsive.font(14),
+          color: AppColors.buttonText,
+          fontSize: Responsive.font(14),
+          fontWeight: FontWeight.w500
       ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
