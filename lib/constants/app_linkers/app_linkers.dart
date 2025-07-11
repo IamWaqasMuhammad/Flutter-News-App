@@ -1,0 +1,14 @@
+export 'package:flutter/material.dart';
+export 'package:flutter_news_app/config/responsive.dart';
+export  'package:flutter_news_app/constants/app_images/app_images_assets.dart';
+export 'package:flutter_news_app/controllers/splash_controller/splash_controller.dart';
+export 'package:flutter_news_app/widgets/png_images.dart';
+export 'package:get/get.dart';
+export 'package:flutter_news_app/bindings/splash_binding.dart';
+export 'package:flutter_news_app/screens/onboarding_screen/onboarding_screen.dart';
+export 'package:flutter_news_app/screens/splash%20_screen/splash_screen.dart';
+export 'package:flutter_news_app/utils/app_routes/app_routes.dart';
+export 'package:flutter_svg/flutter_svg.dart';
+export 'package:flutter_news_app/utils/app_routes/app_pages.dart';
+export 'package:google_fonts/google_fonts.dart';
+export 'package:flutter_news_app/constants/app_colors/app_colors.dart';

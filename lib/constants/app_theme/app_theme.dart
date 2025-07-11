@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../../config/responsive.dart';
-import '../app_colors/app_colors.dart';
+
+
+
+import '../app_linkers/app_linkers.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(

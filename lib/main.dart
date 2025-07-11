@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
 
-import 'config/responsive.dart';
-import 'my_app.dart'; // 👈 import your responsive class
+
+
+import 'constants/app_linkers/app_linkers.dart';
+import 'my_app.dart';
 
 void main() {
   runApp(const AppInitializer());
 }
 
-// This widget initializes the screen dimensions
 class AppInitializer extends StatelessWidget {
   const AppInitializer({super.key});
 
@@ -19,7 +19,7 @@ class AppInitializer extends StatelessWidget {
           builder: (_, orientation) {
             return Builder(
               builder: (context) {
-                Responsive.init(context); // 👈 initialize screen size once
+                Responsive.init(context);
                 return const MyApp();
               },
             );

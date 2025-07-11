@@ -1,6 +1,5 @@
-// lib/widgets/app_icon.dart
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/material.dart';
+
+import '../constants/app_linkers/app_linkers.dart';
 
 class SVGImages extends StatelessWidget {
   final double size;

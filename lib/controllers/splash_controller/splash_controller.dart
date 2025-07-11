@@ -1,5 +1,6 @@
-import 'package:flutter_news_app/utils/app_routes/app_routes.dart';
-import 'package:get/get.dart';
+
+
+import 'package:flutter_news_app/constants/app_linkers/app_linkers.dart';
 
 class SplashController extends GetxController {
   @override
