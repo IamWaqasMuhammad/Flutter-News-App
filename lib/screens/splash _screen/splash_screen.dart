@@ -2,31 +2,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/config/responsive.dart';
 import 'package:flutter_news_app/constants/app_images/app_images_assets.dart';
-import 'package:flutter_news_app/widgets/svg_images.dart';
+import 'package:flutter_news_app/constants/app_theme/app_theme.dart';
+import 'package:flutter_news_app/widgets/png_images.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/splash_controller/splash_controller.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends GetView<SplashController> {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SplashController());
+    print("SplashScreen built with controller: $controller");
 
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SVGImages(
-              imageUrl: AppImagesAssets().appLogo,
-              size: Responsive.height(25),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Khabar App',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ClipRRect(
+              borderRadius: BorderRadiusGeometry.circular(12),
+              child: PNGImages(
+                imageUrl: AppImagesAssets().appLogo,
+                size: Responsive.height(25),
+              ),
             ),
           ],
         ),

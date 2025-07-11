@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../config/responsive.dart';
 import '../app_colors/app_colors.dart';
 
 class AppTheme {
@@ -13,9 +14,19 @@ class AppTheme {
       elevation: 0,
     ),
     textTheme: GoogleFonts.poppinsTextTheme().copyWith(
-      titleLarge: const TextStyle(color: AppColors.titleActive),
-      bodyLarge: const TextStyle(color: AppColors.bodyText),
-      labelLarge: const TextStyle(color: AppColors.buttonText),
+      titleLarge: TextStyle(
+        color: AppColors.titleActive,
+        fontSize: Responsive.font(28),
+        fontWeight: FontWeight.w600,
+      ),
+      bodyLarge: TextStyle(
+        color: AppColors.bodyText,
+        fontSize: Responsive.font(18),
+      ),
+      labelLarge: TextStyle(
+        color: AppColors.buttonText,
+        fontSize: Responsive.font(14),
+      ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.placeholder),
@@ -43,9 +54,19 @@ class AppTheme {
     textTheme: GoogleFonts.poppinsTextTheme(
       ThemeData.dark().textTheme,
     ).copyWith(
-      titleLarge: const TextStyle(color: AppColors.darkTitle),
-      bodyLarge: const TextStyle(color: AppColors.darkBody),
-      labelLarge: const TextStyle(color: Colors.white),
+      titleLarge: TextStyle(
+        color: AppColors.darkTitle,
+        fontSize: Responsive.font(28),
+        fontWeight: FontWeight.w600,
+      ),
+      bodyLarge: TextStyle(
+        color: AppColors.darkBody,
+        fontSize: Responsive.font(18),
+      ),
+      labelLarge: TextStyle(
+        color: Colors.white,
+        fontSize: Responsive.font(14),
+      ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.placeholder),
