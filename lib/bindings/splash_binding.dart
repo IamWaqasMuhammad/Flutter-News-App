@@ -1,6 +1,6 @@
-import 'package:get/get.dart';
 
-import '../controllers/splash_controller/splash_controller.dart';
+import '../constants/app_linkers/app_linkers.dart';
+
 
 class SplashBinding extends Bindings {
   @override
@@ -8,3 +8,4 @@ class SplashBinding extends Bindings {
     Get.lazyPut<SplashController>(() => SplashController());
   }
 }
+

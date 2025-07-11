@@ -2,6 +2,11 @@
 class Assets {
   Assets._();
 
+  static const String fontsPoppinsBold = 'assets/fonts/Poppins-Bold.ttf';
+  static const String fontsPoppinsLight = 'assets/fonts/Poppins-Light.ttf';
+  static const String fontsPoppinsMedium = 'assets/fonts/Poppins-Medium.ttf';
+  static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
+  static const String fontsPoppinsSemiBold = 'assets/fonts/Poppins-SemiBold.ttf';
   static const String imagesAppLogo = 'assets/images/app_logo.png';
   static const String imagesImgOnboarding1 = 'assets/images/img_onboarding1.svg';
   static const String imagesImgOnboarding2 = 'assets/images/img_onboarding2.svg';

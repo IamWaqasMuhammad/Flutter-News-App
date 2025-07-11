@@ -2,16 +2,18 @@
 import '../constants/app_linkers/app_linkers.dart';
 
 class SVGImages extends StatelessWidget {
-  final double size;
+  final double height,width;
    String imageUrl;
-  SVGImages({super.key, this.size = 100,required this.imageUrl});
+   BoxFit boxFit;
+  SVGImages({super.key, this.boxFit=BoxFit.contain, this.height = 100, this.width = 100,required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       imageUrl,
-      width: size,
-      height: size,
+      width: width,
+      height: height,
+      fit: boxFit,
     );
   }
 }
