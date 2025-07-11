@@ -1,7 +1,11 @@
-import 'package:api_testing/constants/app_theme/app_theme.dart';
-import 'package:api_testing/views/news_screen.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/screens/splash%20_screen/splash_screen.dart';
+import 'package:flutter_news_app/views/news_screen.dart';
 import 'package:get/get.dart';
+
+import 'constants/app_theme/app_theme.dart';
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
-      home: NewsScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

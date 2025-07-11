@@ -1,5 +1,6 @@
-import 'package:api_testing/models/news_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../models/news_model.dart';
 
 class NewsServices {
   final String baseUrl = 'https://newsapi.org/v2/';

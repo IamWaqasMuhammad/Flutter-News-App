@@ -1,8 +1,9 @@
-import 'package:api_testing/models/employee_model.dart';
-import 'package:api_testing/services/employee_services.dart';
-import 'package:api_testing/views/news_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../models/employee_model.dart';
+import '../services/employee_services.dart';
+import 'news_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

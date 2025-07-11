@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:api_testing/models/cart_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../models/cart_model.dart';
 
 class CartServices {
   var baseUrl = 'https://fakestoreapi.com/';

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
-import 'package:api_testing/models/news_model.dart';
-import 'package:api_testing/services/news_services.dart';
+
+import '../models/news_model.dart';
+import '../services/news_services.dart';
 
 class NewsController extends GetxController {
   var isLoading = true.obs;
@@ -16,7 +17,7 @@ class NewsController extends GetxController {
   void fetchNews() async {
     try {
       isLoading(true);
-      error('');
+      error('Error');
       final result = await NewsServices().getNews();
       articles.assignAll(result);
     } catch (e) {

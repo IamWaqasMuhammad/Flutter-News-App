@@ -1,7 +1,7 @@
 import 'dart:convert';
-
-import 'package:api_testing/models/quote_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../models/quote_model.dart';
 
 class QuoteServices {
   var baseUrl = 'https://dummyjson.com/';

@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:api_testing/models/employee_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../models/employee_model.dart';
 
 class EmployeeServices {
   var baseUrl = 'https://reqres.in/api/';

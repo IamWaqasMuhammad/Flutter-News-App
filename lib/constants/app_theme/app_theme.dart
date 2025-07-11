@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../app_colors/app_colors.dart';
 
 class AppTheme {
@@ -12,10 +12,10 @@ class AppTheme {
       foregroundColor: AppColors.titleActive,
       elevation: 0,
     ),
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(color: AppColors.titleActive),
-      bodyLarge: TextStyle(color: AppColors.bodyText),
-      labelLarge: TextStyle(color: AppColors.buttonText),
+    textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+      titleLarge: const TextStyle(color: AppColors.titleActive),
+      bodyLarge: const TextStyle(color: AppColors.bodyText),
+      labelLarge: const TextStyle(color: AppColors.buttonText),
     ),
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.placeholder),
@@ -25,7 +25,8 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        backgroundColor: AppColors.primary,
       ),
     ),
   );
@@ -39,10 +40,12 @@ class AppTheme {
       foregroundColor: AppColors.darkTitle,
       elevation: 0,
     ),
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(color: AppColors.darkTitle),
-      bodyLarge: TextStyle(color: AppColors.darkBody),
-      labelLarge: TextStyle(color: Colors.white),
+    textTheme: GoogleFonts.poppinsTextTheme(
+      ThemeData.dark().textTheme,
+    ).copyWith(
+      titleLarge: const TextStyle(color: AppColors.darkTitle),
+      bodyLarge: const TextStyle(color: AppColors.darkBody),
+      labelLarge: const TextStyle(color: Colors.white),
     ),
     inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.placeholder),
@@ -52,7 +55,8 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+        backgroundColor: AppColors.primary,
       ),
     ),
   );

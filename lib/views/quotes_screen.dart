@@ -1,6 +1,8 @@
-import 'package:api_testing/models/quote_model.dart';
-import 'package:api_testing/services/quote_services.dart';
+
 import 'package:flutter/material.dart';
+
+import '../models/quote_model.dart';
+import '../services/quote_services.dart';
 
 class QuotesScreen extends StatelessWidget {
   const QuotesScreen({super.key});

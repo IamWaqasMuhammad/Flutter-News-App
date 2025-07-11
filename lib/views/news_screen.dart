@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:api_testing/controllers/news_controller.dart';
-import 'package:api_testing/models/news_model.dart';
+import '../controllers/news_controller.dart';
+import '../models/news_model.dart';
 
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
