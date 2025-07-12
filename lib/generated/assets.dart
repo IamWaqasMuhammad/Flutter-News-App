@@ -7,9 +7,11 @@ class Assets {
   static const String fontsPoppinsMedium = 'assets/fonts/Poppins-Medium.ttf';
   static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
   static const String fontsPoppinsSemiBold = 'assets/fonts/Poppins-SemiBold.ttf';
-  static const String imagesAppLogo = 'assets/images/app_logo.png';
-  static const String imagesImgOnboarding1 = 'assets/images/img_onboarding1.svg';
-  static const String imagesImgOnboarding2 = 'assets/images/img_onboarding2.svg';
-  static const String imagesImgOnboarding3 = 'assets/images/img_onboarding3.svg';
+  static const String iconsIcApp = 'assets/icons/ic_app.png';
+  static const String iconsIcFacebook = 'assets/icons/ic_facebook.png';
+  static const String iconsIcGoogle = 'assets/icons/ic_google.png';
+  static const String imagesImgOnboarding1 = 'assets/images/img_onboarding1.png';
+  static const String imagesImgOnboarding2 = 'assets/images/img_onboarding2.png';
+  static const String imagesImgOnboarding3 = 'assets/images/img_onboarding3.png';
 
 }

@@ -2,6 +2,8 @@
 
 
 
+import 'package:flutter_news_app/constants/app_icons/app_icons_assets.dart';
+
 import '../../constants/app_barrels/app_barrels.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -18,7 +20,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PNGImages(
-              imageUrl: AppImagesAssets().appLogo,
+              imageUrl: AppIconsAssets.appIcon,
               height: 300,
               width: 300,
             ),
