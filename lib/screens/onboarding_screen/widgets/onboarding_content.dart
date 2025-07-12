@@ -18,7 +18,7 @@ class OnboardContent extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12),bottomRight: Radius.circular(12)),
-          child: PNGImages(
+          child: PNGImagesWidget(
             imageUrl: image,
             height: 584,
             width: 428,

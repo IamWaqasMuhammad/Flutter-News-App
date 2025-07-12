@@ -1,7 +1,7 @@
 export 'package:flutter/material.dart';
 export  'package:flutter_news_app/constants/app_images/app_images_assets.dart';
 export 'package:flutter_news_app/controllers/splash_controller/splash_controller.dart';
-export 'package:flutter_news_app/widgets/png_images.dart';
+export 'package:flutter_news_app/widgets/png_images_widget.dart';
 export 'package:get/get.dart';
 export 'package:flutter_news_app/bindings/splash_binding.dart';
 export 'package:flutter_news_app/screens/onboarding_screen/onboarding_screen.dart';

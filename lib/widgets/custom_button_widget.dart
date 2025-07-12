@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/constants/app_colors/app_colors.dart';
 
-class CustomButton extends StatelessWidget {
+class CustomButtonWidget extends StatelessWidget {
   final double? buttonHeight;
   final double? buttonWidth;
   final Color? buttonColor;
@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
   final String buttonText;
   final void Function()? onPress;
 
-  const CustomButton({
+  const CustomButtonWidget({
     super.key,
     this.buttonHeight,
     this.buttonWidth,
@@ -65,10 +65,10 @@ class CustomButton extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             buttonText,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              fontSize: 18,
+              color: AppColors.darkTitle
+            )
           ),
         ),
       ),

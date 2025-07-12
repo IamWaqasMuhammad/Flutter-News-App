@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news_app/constants/app_colors/app_colors.dart';
 import 'package:flutter_news_app/screens/onboarding_screen/widgets/onboarding_content.dart';
-import 'package:flutter_news_app/widgets/custom_button.dart';
+import 'package:flutter_news_app/widgets/custom_button_widget.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/onboarding_controller/onboarding_controller.dart';
@@ -54,18 +54,18 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      CustomButton(
+                      CustomButtonWidget(
                         buttonText: 'Back',
                         onPress: controller.backPage,
-                        buttonWidth: 70,
+                        buttonWidth: 65,
                         buttonHeight: 40,
                       ),
                       SizedBox(
                         width: 20,
                       ),
-                      CustomButton(
+                      CustomButtonWidget(
                         buttonHeight: 40,
-                        buttonWidth: 100,
+                        buttonWidth: 120,
                         borderRadius: BorderRadius.circular(10),
                         buttonText: controller.currentPage.value <
                                 controller.onboardingData.length - 1

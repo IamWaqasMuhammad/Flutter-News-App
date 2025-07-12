@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class PNGImages extends StatelessWidget {
+class PNGImagesWidget extends StatelessWidget {
   final double? height, width;
   final String imageUrl;
 
-  const PNGImages({
+  const PNGImagesWidget({
     super.key,
     this.height,
     this.width,

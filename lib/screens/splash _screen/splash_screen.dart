@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            PNGImages(
+            PNGImagesWidget(
               imageUrl: AppIconsAssets.appIcon,
               height: 300,
               width: 300,
