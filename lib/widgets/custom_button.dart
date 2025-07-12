@@ -1,12 +1,12 @@
-import '../constants/app_barrels/app_barrels.dart';
-import '../controllers/button_controller/button_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_news_app/constants/app_colors/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   final double? buttonHeight;
   final double? buttonWidth;
   final Color? buttonColor;
   final Color? pressedColor;
-  final BorderRadiusGeometry? borderRadius;
+  final BorderRadius? borderRadius;
   final List<BoxShadow>? boxShadow;
   final BoxShape boxShape;
   final double imgSize;
@@ -17,8 +17,7 @@ class CustomButton extends StatelessWidget {
   final String buttonText;
   final void Function()? onPress;
 
-
-  CustomButton({
+  const CustomButton({
     super.key,
     this.buttonHeight,
     this.buttonWidth,
@@ -38,17 +37,14 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final ButtonController controller = Get.put(ButtonController());
-
-
-    return Obx(() {
-      return GestureDetector(
+    return Material(
+      color: Colors.transparent, // So splash works on gradients, images, etc.
+      child: InkWell(
         key: buttonKey,
-        onTapDown: (_) => controller.setPressed(true),
-        onTapUp: (_) => controller.setPressed(false),
-        onTapCancel: () => controller.setPressed(false),
+        borderRadius: borderRadius ?? BorderRadius.circular(8),
         onTap: onPress,
+        splashColor: AppColors.darkInput,
+        highlightColor: pressedColor?.withOpacity(0.4) ?? Colors.white10,
         child: Container(
           height: buttonHeight,
           width: buttonWidth,
@@ -60,9 +56,7 @@ class CustomButton extends StatelessWidget {
               scale: imgSize,
             )
                 : null,
-            color: controller.isPressed.value
-                ? (pressedColor ?? buttonColor?.withOpacity(0.7))
-                : buttonColor,
+            color: buttonColor,
             borderRadius: borderRadius,
             boxShadow: boxShadow,
             shape: boxShape,
@@ -71,10 +65,13 @@ class CustomButton extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             buttonText,
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }

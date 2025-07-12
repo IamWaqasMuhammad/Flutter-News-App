@@ -54,13 +54,14 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      // CustomButton(
-                      //   buttonText: 'Back',
-                      //   onPress: controller.backPage,
-                      //   buttonColor: Colors.transparent,
-                      // ),
+                      CustomButton(
+                        buttonText: 'Back',
+                        onPress: controller.backPage,
+                        buttonWidth: 70,
+                        buttonHeight: 40,
+                      ),
                       SizedBox(
-                        width: 10,
+                        width: 20,
                       ),
                       CustomButton(
                         buttonHeight: 40,

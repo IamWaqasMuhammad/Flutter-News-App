@@ -27,7 +27,7 @@ class OnboardingController extends GetxController {
     currentPage.value=index;
   }
 
-  /// ✅ TO NAVIGATE TO PREVIOUS PAGE
+  /// TO NAVIGATE TO PREVIOUS PAGE
   void backPage() {
     if (currentPage.value > 0) {
       pageController.previousPage(
@@ -35,8 +35,7 @@ class OnboardingController extends GetxController {
         curve: Curves.easeOut,
       );
     } else {
-      // Optional: Exit app or show dialog
-      Get.back(); // If you want to pop the onboarding screen
+      Get.back();
     }
   }
 
