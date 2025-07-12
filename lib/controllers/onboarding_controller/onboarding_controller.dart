@@ -1,4 +1,5 @@
-import '../../constants/app_linkers/app_linkers.dart';
+
+import '../../constants/app_barrels/app_barrels.dart';
 
 class OnboardingController extends GetxController {
   final pageController = PageController();
@@ -6,18 +7,14 @@ class OnboardingController extends GetxController {
 
   /// TO NAVIGATE TO NEXT PAGE
   void nextPage(){
-    if(currentPage.value <2){
+    if(currentPage.value < 2){
       pageController.nextPage(duration: Duration(microseconds: 300), curve: Curves.easeIn);
     }
     else{
-      Get.offNamed(AppRoutes.main);
+      Get.offNamed(AppRoutes.login);
     }
   }
 
-  /// SKIP TO MAIN SCREEN
-  void skip(){
-    Get.offNamed(AppRoutes.home);
-  }
 
   @override
   void onClose() {
@@ -30,21 +27,36 @@ class OnboardingController extends GetxController {
     currentPage.value=index;
   }
 
+  /// ✅ TO NAVIGATE TO PREVIOUS PAGE
+  void backPage() {
+    if (currentPage.value > 0) {
+      pageController.previousPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    } else {
+      // Optional: Exit app or show dialog
+      Get.back(); // If you want to pop the onboarding screen
+    }
+  }
+
+
+
   final List<Map<String, String>> onboardingData = [
     {
-      "title": "Welcome",
-      "subtitle": "Discover amazing content",
-      "image": AppImagesAssets().onboardingImage1,
+      "title": "Stay Updated, Stay Ahead",
+      "subtitle": "Get breaking news, trending topics, and real-time headlines curated just for you — all in one place.",
+      "image": AppImagesAssets.onboardingImage1,
     },
     {
-      "title": "Explore",
-      "subtitle": "Find what you love",
-      "image": AppImagesAssets().onboardingImage2,
+      "title": "Your Interests, Your Feed",
+      "subtitle": "Select the topics you love — from politics to plant-based diets — and we’ll tailor your news experience accordingly.",
+      "image": AppImagesAssets.onboardingImage2,
     },
     {
-      "title": "Start",
-      "subtitle": "Let’s get started",
-      "image": AppImagesAssets().onboardingImage3,
+      "title": "Fuel Your Mind and Body",
+      "subtitle": "Discover nutrition tips, healthy recipes, and wellness news to help you lead a better lifestyle, one bite at a time.",
+      "image": AppImagesAssets.onboardingImage3,
     },
   ];
 }

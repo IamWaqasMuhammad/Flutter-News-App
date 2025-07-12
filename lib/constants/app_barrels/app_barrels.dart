@@ -1,5 +1,4 @@
 export 'package:flutter/material.dart';
-export 'package:flutter_news_app/config/responsive.dart';
 export  'package:flutter_news_app/constants/app_images/app_images_assets.dart';
 export 'package:flutter_news_app/controllers/splash_controller/splash_controller.dart';
 export 'package:flutter_news_app/widgets/png_images.dart';

@@ -1,7 +1,9 @@
 
 import 'package:flutter_news_app/controllers/onboarding_controller/onboarding_controller.dart';
 
-import '../constants/app_linkers/app_linkers.dart';
+import '../constants/app_barrels/app_barrels.dart';
+
+
 
 
 class OnboardingBinding extends Bindings {

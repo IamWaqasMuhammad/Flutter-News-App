@@ -1,17 +1,29 @@
-
-import '../constants/app_linkers/app_linkers.dart';
+import 'package:flutter/material.dart';
 
 class PNGImages extends StatelessWidget {
-  final double size;
-  String imageUrl;
-  PNGImages({super.key, this.size = 100,required this.imageUrl});
+  final double? height, width;
+  final String imageUrl;
+
+  const PNGImages({
+    super.key,
+    this.height,
+    this.width,
+    required this.imageUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      imageUrl,
-      width: size,
-      height: size,
+    return Center( // Important for IntroductionScreen layout
+      child: SizedBox(
+        height: height,
+        width: width,
+        child: ClipRRect(
+          child: Image.asset(
+            imageUrl,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

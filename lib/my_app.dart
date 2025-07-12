@@ -1,7 +1,5 @@
 
-
-
-import 'constants/app_linkers/app_linkers.dart';
+import 'constants/app_barrels/app_barrels.dart';
 import 'constants/app_theme/app_theme.dart';
 
 
@@ -13,7 +11,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       initialBinding: SplashBinding(),
       initialRoute: AppRoutes.splash,
       getPages: AppPages().pages,

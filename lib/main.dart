@@ -1,31 +1,11 @@
 
 
 
-import 'constants/app_linkers/app_linkers.dart';
+import 'constants/app_barrels/app_barrels.dart';
 import 'my_app.dart';
 
+
 void main() {
-  runApp(const AppInitializer());
+  runApp(const MyApp());
 }
 
-class AppInitializer extends StatelessWidget {
-  const AppInitializer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (_, constraints) {
-        return OrientationBuilder(
-          builder: (_, orientation) {
-            return Builder(
-              builder: (context) {
-                Responsive.init(context);
-                return const MyApp();
-              },
-            );
-          },
-        );
-      },
-    );
-  }
-}

@@ -1,12 +1,13 @@
 
 
-import 'package:flutter_news_app/constants/app_linkers/app_linkers.dart';
+
+import '../../constants/app_barrels/app_barrels.dart';
 
 class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Get.offNamed(AppRoutes.onboarding);
     });
   }

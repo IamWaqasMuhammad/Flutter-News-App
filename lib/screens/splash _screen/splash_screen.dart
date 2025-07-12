@@ -1,7 +1,8 @@
 
 
 
-import '../../constants/app_linkers/app_linkers.dart';
+
+import '../../constants/app_barrels/app_barrels.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -16,12 +17,10 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadiusGeometry.circular(12),
-              child: PNGImages(
-                imageUrl: AppImagesAssets().appLogo,
-                size: Responsive.height(25),
-              ),
+            PNGImages(
+              imageUrl: AppImagesAssets().appLogo,
+              height: 300,
+              width: 300,
             ),
           ],
         ),

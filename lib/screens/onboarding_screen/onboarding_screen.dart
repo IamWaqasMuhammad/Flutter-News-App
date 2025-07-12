@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/constants/app_colors/app_colors.dart';
 import 'package:flutter_news_app/screens/onboarding_screen/widgets/onboarding_content.dart';
+import 'package:flutter_news_app/widgets/custom_button.dart';
 import 'package:get/get.dart';
+
 import '../../controllers/onboarding_controller/onboarding_controller.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -25,46 +28,60 @@ class OnboardingScreen extends StatelessWidget {
               ),
             ),
           ),
-          Obx(() => Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              controller.onboardingData.length,
-                  (index) => AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                margin: const EdgeInsets.all(5),
-                width: controller.currentPage.value == index ? 20 : 8,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: controller.currentPage.value == index
-                      ? Colors.blue
-                      : Colors.grey,
-                  borderRadius: BorderRadius.circular(5),
-                ),
+          Obx(
+            () => Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      controller.onboardingData.length,
+                      (index) => AnimatedContainer(
+                        duration: const Duration(milliseconds: 200),
+                        margin: const EdgeInsets.all(5),
+                        width: controller.currentPage.value == index ? 20 : 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: controller.currentPage.value == index
+                              ? Colors.blue
+                              : Colors.grey,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      // CustomButton(
+                      //   buttonText: 'Back',
+                      //   onPress: controller.backPage,
+                      //   buttonColor: Colors.transparent,
+                      // ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      CustomButton(
+                        buttonHeight: 40,
+                        buttonWidth: 100,
+                        borderRadius: BorderRadius.circular(10),
+                        buttonText: controller.currentPage.value <
+                                controller.onboardingData.length - 1
+                            ? 'Next'
+                            : 'Get Started',
+                        onPress: controller.nextPage,
+                        buttonColor: AppColors.primary,
+                      ),
+                    ],
+                  )
+                ],
               ),
             ),
-          )),
-          Padding(
-            padding:
-            const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
-            child: Obx(() => Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: controller.skip,
-                  child: const Text("Skip"),
-                ),
-                ElevatedButton(
-                  onPressed: controller.nextPage,
-                  child: Text(
-                    controller.currentPage.value <
-                        controller.onboardingData.length - 1
-                        ? "Next"
-                        : "Get Started",
-                  ),
-                ),
-              ],
-            )),
-          )
+          ),
+          SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );
