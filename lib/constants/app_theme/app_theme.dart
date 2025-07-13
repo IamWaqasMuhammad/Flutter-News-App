@@ -1,5 +1,4 @@
 import 'package:flutter_news_app/constants/app_barrels/app_barrels.dart';
-import 'package:flutter_news_app/constants/app_theme/widgets/text_theme_widget.dart';
 
 class AppTheme {
   /// LIGHT THEME

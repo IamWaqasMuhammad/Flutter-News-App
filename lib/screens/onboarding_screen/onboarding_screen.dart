@@ -1,10 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_news_app/constants/app_colors/app_colors.dart';
-import 'package:flutter_news_app/screens/onboarding_screen/widgets/onboarding_content.dart';
-import 'package:flutter_news_app/widgets/custom_button_widget.dart';
-import 'package:get/get.dart';
 
-import '../../controllers/onboarding_controller/onboarding_controller.dart';
+
+import '../../constants/app_barrels/app_barrels.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});

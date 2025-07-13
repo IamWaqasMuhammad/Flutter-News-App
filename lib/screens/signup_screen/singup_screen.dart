@@ -1,8 +1,4 @@
-import 'package:flutter_news_app/constants/app_icons/app_icons_assets.dart';
-import 'package:flutter_news_app/controllers/signup_controller/signup_controller.dart';
-import 'package:flutter_news_app/widgets/custom_button_widget.dart';
-import 'package:flutter_news_app/widgets/custom_icon_button_widget.dart';
-import 'package:flutter_news_app/widgets/custom_text_field_widget.dart';
+
 
 import '../../constants/app_barrels/app_barrels.dart';
 

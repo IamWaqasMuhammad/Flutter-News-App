@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_news_app/constants/app_colors/app_colors.dart';
+
+import '../constants/app_barrels/app_barrels.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   final double? buttonHeight;

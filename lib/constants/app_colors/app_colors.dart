@@ -1,6 +1,6 @@
 
 
-import '../app_barrels/app_barrels.dart' show Color;
+import '../app_barrels/app_barrels.dart';
 
 class AppColors {
   // Grayscale
