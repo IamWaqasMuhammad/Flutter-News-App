@@ -211,26 +211,29 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    Text(
-                      'Don\'t have an Account?',
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelMedium!
-                          .copyWith(fontSize: 16),
-                    ),
-                    CustomButtonWidget(
-                      buttonText: 'SignUp',
-                      onPress: () {Get.off(SignupScreen());},
-                      textStyle:
-                          Theme.of(context).textTheme.headlineLarge!.copyWith(
-                                fontSize: 14,
-                              ),
-                      buttonHeight: 25,
-                      buttonWidth: 70,
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Don\'t have an Account?',
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium!
+                            .copyWith(fontSize: 16),
+                      ),
+                      CustomButtonWidget(
+                        buttonText: 'SignUp',
+                        onPress: () {Get.offNamed(AppRoutes.signup);},
+                        textStyle:
+                            Theme.of(context).textTheme.headlineLarge!.copyWith(
+                                  fontSize: 14,
+                                ),
+                        buttonHeight: 25,
+                        buttonWidth: 70,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
