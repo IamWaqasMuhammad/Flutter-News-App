@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "441614038266",
+    "project_id": "khabar-app-b0248",
+    "storage_bucket": "khabar-app-b0248.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441614038266:android:cc8aee92984343a27bc543",
+        "android_client_info": {
+          "package_name": "com.example.api_testing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2gUbqljceWgvHEWdYXE1_2fngBWLqEV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
