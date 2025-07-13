@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_news_app/constants/app_colors/app_colors.dart';
+import 'package:flutter_news_app/constants/app_barrels/app_barrels.dart';
 
-class CustomButtonWidget extends StatelessWidget {
+class CustomIconButtonWidget extends StatelessWidget {
   final double? buttonHeight;
   final double? buttonWidth;
   final Color? buttonColor;
-  final TextStyle? textStyle;
   final Color? pressedColor;
   final BorderRadius? borderRadius;
   final List<BoxShadow>? boxShadow;
@@ -13,20 +11,27 @@ class CustomButtonWidget extends StatelessWidget {
   final Gradient? gradient;
   final String buttonText;
   final void Function()? onPress;
+  final String imgUrl;
+  final double? imgHeight;
+  final double? imgWidth;
+  final BoxFit? boxFit;
 
-  const CustomButtonWidget({
+  const CustomIconButtonWidget({
     super.key,
     this.buttonHeight,
     this.buttonWidth,
     this.buttonColor,
     this.pressedColor,
-    this.textStyle,
     this.borderRadius,
     this.boxShadow,
     this.boxShape = BoxShape.rectangle,
     this.gradient,
     required this.buttonText,
     required this.onPress,
+    required this.imgUrl,
+    this.boxFit,
+    this.imgHeight,
+    this.imgWidth,
   });
 
   @override
@@ -36,26 +41,40 @@ class CustomButtonWidget extends StatelessWidget {
         borderRadius ?? BorderRadius.circular(8);
 
     return Material(
-      color: buttonColor ?? Colors.transparent,
+      color: Colors.transparent,
       borderRadius: effectiveRadius,
       child: InkWell(
-        onTap: onPress,
         borderRadius: effectiveRadius,
-        splashColor: pressedColor ?? AppColors.darkInput.withOpacity(0.2),
-        highlightColor: pressedColor ?? AppColors.darkInput.withOpacity(0.1),
+        onTap: onPress,
+        splashColor: pressedColor ?? AppColors.darkInput.withOpacity(0.4),
+        highlightColor: pressedColor ?? AppColors.darkInput.withOpacity(0.2),
         child: Container(
           height: buttonHeight,
           width: buttonWidth,
           decoration: BoxDecoration(
+            color: buttonColor,
             borderRadius: effectiveRadius,
             boxShadow: boxShadow,
             shape: boxShape,
             gradient: gradient,
           ),
           alignment: Alignment.center,
-          child: Text(
-            buttonText,
-            style: textStyle,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              PNGImagesWidget(
+                imageUrl: imgUrl,
+                height: imgHeight,
+                width: imgWidth,
+              ),
+              Text(
+                buttonText,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(fontSize: 18, color: AppColors.placeholder),
+              ),
+            ],
           ),
         ),
       ),

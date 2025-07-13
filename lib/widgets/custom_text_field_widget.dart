@@ -7,6 +7,8 @@ class CustomTextFieldWidget extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final Widget? suffixIcon;
+  final void Function(String)? onFieldSubmitted;
+  final FocusNode? focusNode;
 
   const CustomTextFieldWidget({
     super.key,
@@ -16,6 +18,8 @@ class CustomTextFieldWidget extends StatelessWidget {
     this.validator,
     this.controller,
     this.suffixIcon,
+    this.onFieldSubmitted,
+    this.focusNode,
   });
 
   @override
@@ -28,7 +32,8 @@ class CustomTextFieldWidget extends StatelessWidget {
       textInputAction: textInputAction,
       obscureText: obscureText,
       style: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 16),
-      onFieldSubmitted: (_) => FocusScope.of(context).nextFocus(),
+      onFieldSubmitted: onFieldSubmitted,
+      focusNode: focusNode,
       decoration: InputDecoration(
         filled: Theme.of(context).brightness == Brightness.dark,
         fillColor: Theme.of(context).brightness == Brightness.dark

@@ -12,6 +12,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<OnboardingController>();
+    
 
     return Scaffold(
       body: Column(
@@ -57,16 +58,25 @@ class OnboardingScreen extends StatelessWidget {
                       CustomButtonWidget(
                         buttonText: 'Back',
                         onPress: controller.backPage,
-                        buttonWidth: 65,
+                        buttonWidth: 50,
                         buttonHeight: 40,
+                        borderRadius: BorderRadius.circular(10),
+                        textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontSize: 12,
+                            color: AppColors.buttonText
+                        ),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       CustomButtonWidget(
                         buttonHeight: 40,
-                        buttonWidth: 120,
+                        buttonWidth: 90,
                         borderRadius: BorderRadius.circular(10),
+                        textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          fontSize: 12,
+                          color: AppColors.disabledInput
+                      ),
                         buttonText: controller.currentPage.value <
                                 controller.onboardingData.length - 1
                             ? 'Next'
