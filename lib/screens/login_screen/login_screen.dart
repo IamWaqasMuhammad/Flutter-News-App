@@ -5,14 +5,13 @@ import 'package:flutter_news_app/widgets/custom_icon_button_widget.dart';
 import 'package:flutter_news_app/widgets/custom_text_field_widget.dart';
 
 import '../../constants/app_barrels/app_barrels.dart';
-import '../signup_screen/singup_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
+    final controller = Get.find<LoginController>();
 
     return Scaffold(
       body: Padding(
