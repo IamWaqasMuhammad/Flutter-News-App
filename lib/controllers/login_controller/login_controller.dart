@@ -4,6 +4,7 @@ class LoginController extends GetxController {
   // Text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final formKey= GlobalKey<FormState>();
 
   // Focus nodes
   final emailFocus = FocusNode();

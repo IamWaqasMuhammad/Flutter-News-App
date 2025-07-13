@@ -72,7 +72,7 @@ class CustomIconButtonWidget extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
-                    .copyWith(fontSize: 18, color: AppColors.placeholder),
+                    .copyWith(fontSize: 14, color: AppColors.placeholder),
               ),
             ],
           ),
