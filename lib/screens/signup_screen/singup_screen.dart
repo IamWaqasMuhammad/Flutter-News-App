@@ -1,5 +1,4 @@
 import 'package:flutter_news_app/constants/app_icons/app_icons_assets.dart';
-import 'package:flutter_news_app/controllers/login_controller/login_controller.dart';
 import 'package:flutter_news_app/controllers/signup_controller/signup_controller.dart';
 import 'package:flutter_news_app/widgets/custom_button_widget.dart';
 import 'package:flutter_news_app/widgets/custom_icon_button_widget.dart';
@@ -12,7 +11,7 @@ class SignupScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SignupController());
+    final controller = Get.find<SignupController>();
 
     return Scaffold(
       body: Padding(
