@@ -25,6 +25,7 @@ export 'package:flutter_news_app/bindings/onboarding_binding.dart';
 export 'package:flutter_news_app/bindings/signup_binding.dart';
 export 'package:flutter_news_app/screens/login_screen/login_screen.dart';
 export 'package:flutter_news_app/screens/signup_screen/singup_screen.dart';
+export 'package:flutter_news_app/constants/app_strings/app_strings_assets.dart';
 
 
 

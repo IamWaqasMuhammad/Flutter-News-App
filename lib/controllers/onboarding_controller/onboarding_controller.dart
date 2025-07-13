@@ -43,18 +43,18 @@ class OnboardingController extends GetxController {
 
   final List<Map<String, String>> onboardingData = [
     {
-      "title": "Stay Updated, Stay Ahead",
-      "subtitle": "Get breaking news, trending topics, and real-time headlines curated just for you — all in one place.",
+      "title": AppStringsAssets.onboardTitle1,
+      "subtitle": AppStringsAssets.onboardSubTitle1,
       "image": AppImagesAssets.onboardingImage1,
     },
     {
-      "title": "Your Interests, Your Feed",
-      "subtitle": "Select the topics you love — from politics to plant-based diets — and we’ll tailor your news experience accordingly.",
+      "title": AppStringsAssets.onboardTitle2,
+      "subtitle": AppStringsAssets.onboardSubTitle2,
       "image": AppImagesAssets.onboardingImage2,
     },
     {
-      "title": "Fuel Your Mind and Body",
-      "subtitle": "Discover nutrition tips, healthy recipes, and wellness news to help you lead a better lifestyle, one bite at a time.",
+      "title": AppStringsAssets.onboardTitle3,
+      "subtitle": AppStringsAssets.onboardSubTitle3,
       "image": AppImagesAssets.onboardingImage3,
     },
   ];

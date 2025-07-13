@@ -1,4 +1,3 @@
-
 import '../../constants/app_barrels/app_barrels.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -21,7 +20,7 @@ class LoginScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  'Hello',
+                  AppStringsAssets.loginTitle,
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                         fontSize: 52,
                         color: Theme.of(context).brightness == Brightness.dark
@@ -34,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                   height: 15,
                 ),
                 Text(
-                  'Again!',
+                  AppStringsAssets.loginTitle2,
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                         fontSize: 42,
                         color: AppColors.primary,
@@ -45,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Welcome back you’ve\nbeen missed',
+                  AppStringsAssets.loginSubTitle,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
@@ -60,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Email',
+                        text: AppStringsAssets.emailLabel,
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
@@ -68,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                                 fontSize: 14, color: AppColors.placeholder),
                       ),
                       TextSpan(
-                        text: '*',
+                        text: AppStringsAssets.asterak,
                         style: TextStyle(color: AppColors.error),
                       ),
                     ],
@@ -97,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Password',
+                        text: AppStringsAssets.passwordLabel,
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
@@ -105,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                                 fontSize: 14, color: AppColors.placeholder),
                       ),
                       TextSpan(
-                        text: '*',
+                        text: AppStringsAssets.asterak,
                         style: TextStyle(color: AppColors.error),
                       ),
                     ],
@@ -132,15 +131,23 @@ class LoginScreen extends StatelessWidget {
                       checkColor: AppColors.darkTitle,
                     ),
                     Text(
-                      'Remember Me',
+                      AppStringsAssets.rememberMeCheck,
                       style: Theme.of(context).textTheme.labelMedium!.copyWith(
                             fontSize: 14,
                           ),
                     ),
-                    SizedBox(width: 18,),
-                    CustomButtonWidget(buttonText: 'Forget the Password?', onPress: (){},buttonHeight: 20,textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: AppColors.primary
-                    ),),
+                    SizedBox(
+                      width: 18,
+                    ),
+                    CustomButtonWidget(
+                      buttonText: AppStringsAssets.forgetButtonText,
+                      onPress: () {},
+                      buttonHeight: 20,
+                      textStyle:
+                          Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                color: AppColors.primary,
+                              ),
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -148,15 +155,15 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Center(
                   child: CustomButtonWidget(
-                    buttonText: 'Login',
+                    buttonText: AppStringsAssets.loginButtonText,
                     onPress: controller.handleLogin,
                     buttonHeight: 50,
                     buttonWidth: 350,
                     buttonColor: AppColors.primary,
-                    textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      fontSize: 18,
-                      color: AppColors.disabledInput
-                    ),
+                    textStyle: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontSize: 18, color: AppColors.disabledInput),
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
@@ -165,7 +172,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    'or continue with',
+                    AppStringsAssets.orContinueWithText,
                     style: Theme.of(context).textTheme.labelLarge,
                   ),
                 ),
@@ -176,7 +183,7 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     CustomIconButtonWidget(
-                      buttonText: 'Google',
+                      buttonText: AppStringsAssets.googleButtonText,
                       buttonColor: AppColors.button,
                       buttonWidth: 154,
                       buttonHeight: 48,
@@ -190,7 +197,7 @@ class LoginScreen extends StatelessWidget {
                       width: 5,
                     ),
                     CustomIconButtonWidget(
-                      buttonText: 'Facebook',
+                      buttonText: AppStringsAssets.facebookButtonText,
                       buttonColor: AppColors.button,
                       buttonWidth: 154,
                       buttonHeight: 48,
@@ -210,15 +217,17 @@ class LoginScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        'Don\'t have an Account?',
+                        AppStringsAssets.dontHaveAnAccountText,
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
                             .copyWith(fontSize: 16),
                       ),
                       CustomButtonWidget(
-                        buttonText: 'SignUp',
-                        onPress: () {Get.offNamed(AppRoutes.signup);},
+                        buttonText: AppStringsAssets.signUpButtonText,
+                        onPress: () {
+                          Get.offNamed(AppRoutes.signup);
+                        },
                         textStyle:
                             Theme.of(context).textTheme.headlineLarge!.copyWith(
                                   fontSize: 14,

@@ -1,5 +1,6 @@
 
 
+
 import '../../constants/app_barrels/app_barrels.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class SignupScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  'Hello!',
+                  AppStringsAssets.signUpTitle,
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                     fontSize: 42,
                     color: AppColors.primary,
@@ -33,7 +34,7 @@ class SignupScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Signup to get Started',
+                  AppStringsAssets.signUpSubTitle,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!
@@ -48,7 +49,7 @@ class SignupScreen extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Email',
+                        text: AppStringsAssets.emailLabel,
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
@@ -56,7 +57,7 @@ class SignupScreen extends StatelessWidget {
                             fontSize: 14, color: AppColors.placeholder),
                       ),
                       TextSpan(
-                        text: '*',
+                        text: AppStringsAssets.asterak,
                         style: TextStyle(color: AppColors.error),
                       ),
                     ],
@@ -85,7 +86,7 @@ class SignupScreen extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: 'Password',
+                        text: AppStringsAssets.passwordLabel,
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
@@ -93,7 +94,7 @@ class SignupScreen extends StatelessWidget {
                             fontSize: 14, color: AppColors.placeholder),
                       ),
                       TextSpan(
-                        text: '*',
+                        text: AppStringsAssets.asterak,
                         style: TextStyle(color: AppColors.error),
                       ),
                     ],
@@ -120,7 +121,7 @@ class SignupScreen extends StatelessWidget {
                       checkColor: AppColors.darkTitle,
                     ),
                     Text(
-                      'Remember Me',
+                      AppStringsAssets.rememberMeCheck,
                       style: Theme.of(context).textTheme.labelMedium!.copyWith(
                         fontSize: 14,
                       ),
@@ -132,7 +133,7 @@ class SignupScreen extends StatelessWidget {
                 ),
                 Center(
                   child: CustomButtonWidget(
-                    buttonText: 'SignUp',
+                    buttonText: AppStringsAssets.signUpButtonText,
                     onPress: controller.handleSignup,
                     buttonHeight: 50,
                     buttonWidth: 350,
@@ -149,7 +150,7 @@ class SignupScreen extends StatelessWidget {
                 ),
                 Center(
                   child: Text(
-                    'or continue with',
+                    AppStringsAssets.orContinueWithText,
                     style: Theme.of(context).textTheme.labelLarge,
                   ),
                 ),
@@ -160,7 +161,7 @@ class SignupScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     CustomIconButtonWidget(
-                      buttonText: 'Google',
+                      buttonText: AppStringsAssets.googleButtonText,
                       buttonColor: AppColors.button,
                       buttonWidth: 154,
                       buttonHeight: 48,
@@ -174,7 +175,7 @@ class SignupScreen extends StatelessWidget {
                       width: 5,
                     ),
                     CustomIconButtonWidget(
-                      buttonText: 'Facebook',
+                      buttonText: AppStringsAssets.facebookButtonText,
                       buttonColor: AppColors.button,
                       buttonWidth: 154,
                       buttonHeight: 48,
@@ -194,16 +195,15 @@ class SignupScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        'Already have an Account?',
+                        AppStringsAssets.alreadyHaveAnAccountText,
                         style: Theme.of(context)
                             .textTheme
                             .labelMedium!
                             .copyWith(fontSize: 16),
                       ),
                       CustomButtonWidget(
-                        buttonText: 'Login',
+                        buttonText: AppStringsAssets.loginButtonText,
                         onPress: () {
-                          print('Button Pressed');
                           Get.offNamed(AppRoutes.login);
                         },
                         textStyle:

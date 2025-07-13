@@ -75,8 +75,8 @@ class OnboardingScreen extends StatelessWidget {
                       ),
                         buttonText: controller.currentPage.value <
                                 controller.onboardingData.length - 1
-                            ? 'Next'
-                            : 'Get Started',
+                            ? AppStringsAssets.nextButtonText
+                            : AppStringsAssets.getStartedButtonText,
                         onPress: controller.nextPage,
                         buttonColor: AppColors.primary,
                       ),
