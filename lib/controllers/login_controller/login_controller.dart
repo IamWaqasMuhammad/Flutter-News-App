@@ -4,9 +4,11 @@ class LoginController extends GetxController {
   // Text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final formKey= GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
-  // Focus nodes
+  final isPasswordVisible = false.obs;
+
+  // Focus node
   final emailFocus = FocusNode();
   final passwordFocus = FocusNode();
 
@@ -15,17 +17,64 @@ class LoginController extends GetxController {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
-    if (email.isEmpty || password.isEmpty) {
-      Get.snackbar('Error', 'Please enter both fields',
-          backgroundColor: AppColors.error,
-          colorText: Colors.white);
-      return;
-    }
-
-    // TODO: Add your actual authentication logic here
-    Get.snackbar('Success', 'Logged in as $email',
+    if (formKey.currentState!.validate()) {
+      Get.snackbar(
+        'Account Login Successful!',
+        'You logged in as $email',
         backgroundColor: AppColors.success,
-        colorText: Colors.white);
+        colorText: Colors.white,
+      );
+    } else {
+      Get.snackbar(
+        'Account Login Failed!',
+        'Please enter valid Email & Password',
+        backgroundColor: AppColors.error,
+        colorText: Colors.white,
+      );
+    }
+  }
+
+  // Email validation
+  String? validateEmail(String? value) {
+    final RegExp emailRegex = RegExp(
+      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
+    );
+
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter your email';
+    } else if (!emailRegex.hasMatch(value.trim())) {
+      return 'Enter a valid email address';
+    }
+    return null;
+  }
+
+  // Password validation
+  String? validatePassword(String? value) {
+    final RegExp passwordRegex = RegExp(
+      r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$&*~_]).{8,}$',
+    );
+
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter your password';
+    } else if (value.trim().length < 8) {
+      return 'Password must be at least 8 characters';
+    } else if (!passwordRegex.hasMatch(value.trim())) {
+      return 'Must include 1 uppercase, 1 digit, and 1 special character';
+    }
+    return null;
+  }
+
+
+  // Toggle method
+  void togglePasswordVisibility() {
+    isPasswordVisible.value = !isPasswordVisible.value;
+  }
+
+  final rememberMe = false.obs;
+
+// Toggle method
+  void toggleRememberMe(bool? value) {
+    rememberMe.value = value ?? false;
   }
 
   @override

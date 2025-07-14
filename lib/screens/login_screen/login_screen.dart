@@ -53,128 +53,146 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-
                 Form(
                   key: controller.formKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    /// EMAIL FIELD
-                    RichText(
-                      text: TextSpan(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      /// EMAIL FIELD
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: AppStringsAssets.emailLabel,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(
+                                      fontSize: 14,
+                                      color: AppColors.placeholder),
+                            ),
+                            TextSpan(
+                              text: AppStringsAssets.asterak,
+                              style: TextStyle(color: AppColors.error),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      CustomTextFieldWidget(
+                        textInputAction: TextInputAction.next,
+                        textInputType: TextInputType.emailAddress,
+                        controller: controller.emailController,
+                        focusNode: controller.emailFocus,
+                        onFieldSubmitted: (_) {
+                          FocusScope.of(context)
+                              .requestFocus(controller.passwordFocus);
+                        },
+                        validator: controller.validateEmail,
+                      ),
+
+                      SizedBox(
+                        height: 15,
+                      ),
+
+                      /// PASSWORD FIELD
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: AppStringsAssets.passwordLabel,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(
+                                      fontSize: 14,
+                                      color: AppColors.placeholder),
+                            ),
+                            TextSpan(
+                              text: AppStringsAssets.asterak,
+                              style: TextStyle(color: AppColors.error),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Obx(()=>CustomTextFieldWidget(
+                        textInputType: TextInputType.visiblePassword,
+                        textInputAction: TextInputAction.send,
+                        obscureText: !controller.isPasswordVisible.value,
+                        suffixIcon:  IconButton(
+                          icon: Icon(
+                            controller.isPasswordVisible.value
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                          ),
+                          onPressed: controller.togglePasswordVisibility,
+                        ),
+                        controller: controller.passwordController,
+                        focusNode: controller.passwordFocus,
+                        onFieldSubmitted: (_) => controller.handleLogin(),
+                        validator: controller.validatePassword,
+                      ),),
+                      Row(
                         children: [
-                          TextSpan(
-                            text: AppStringsAssets.emailLabel,
+                          Obx(()=> Checkbox(
+                            value: controller.rememberMe.value,
+                            onChanged: controller.toggleRememberMe,
+                            activeColor: AppColors.primary,
+                            checkColor: AppColors.darkTitle,
+                          ),),
+                          Text(
+                            AppStringsAssets.rememberMeCheck,
                             style: Theme.of(context)
                                 .textTheme
                                 .labelMedium!
                                 .copyWith(
-                                fontSize: 14, color: AppColors.placeholder),
+                                  fontSize: 14,
+                                ),
                           ),
-                          TextSpan(
-                            text: AppStringsAssets.asterak,
-                            style: TextStyle(color: AppColors.error),
+                          SizedBox(
+                            width: 18,
                           ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    CustomTextFieldWidget(
-                      textInputAction: TextInputAction.next,
-                      textInputType: TextInputType.name,
-                      controller: controller.emailController,
-                      focusNode: controller.emailFocus,
-                      onFieldSubmitted: (_) {
-                        FocusScope.of(context)
-                            .requestFocus(controller.passwordFocus);
-                      },
-                    ),
-
-                    SizedBox(
-                      height: 15,
-                    ),
-
-                    /// PASSWORD FIELD
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: AppStringsAssets.passwordLabel,
-                            style: Theme.of(context)
+                          CustomButtonWidget(
+                            buttonText: AppStringsAssets.forgetButtonText,
+                            onPress: () {},
+                            buttonHeight: 20,
+                            textStyle: Theme.of(context)
                                 .textTheme
-                                .labelMedium!
+                                .bodyMedium!
                                 .copyWith(
-                                fontSize: 14, color: AppColors.placeholder),
-                          ),
-                          TextSpan(
-                            text: AppStringsAssets.asterak,
-                            style: TextStyle(color: AppColors.error),
+                                  color: AppColors.primary,
+                                ),
                           ),
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    CustomTextFieldWidget(
-                      textInputType: TextInputType.visiblePassword,
-                      textInputAction: TextInputAction.send,
-                      obscureText: true,
-                      suffixIcon: Icon(Icons.visibility_off_outlined),
-                      controller: controller.passwordController,
-                      focusNode: controller.passwordFocus,
-                      onFieldSubmitted: (_) => controller.handleLogin(),
-                    ),
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: true,
-                          onChanged: (value) {},
-                          activeColor: AppColors.primary,
-                          checkColor: AppColors.darkTitle,
-                        ),
-                        Text(
-                          AppStringsAssets.rememberMeCheck,
-                          style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                            fontSize: 14,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 18,
-                        ),
-                        CustomButtonWidget(
-                          buttonText: AppStringsAssets.forgetButtonText,
-                          onPress: () {},
-                          buttonHeight: 20,
-                          textStyle:
-                          Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: AppColors.primary,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Center(
-                      child: CustomButtonWidget(
-                        buttonText: AppStringsAssets.loginButtonText,
-                        onPress: controller.handleLogin,
-                        buttonHeight: 50,
-                        buttonWidth: 350,
-                        buttonColor: AppColors.primary,
-                        textStyle: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(fontSize: 18, color: AppColors.disabledInput),
-                        borderRadius: BorderRadius.circular(10),
+                      SizedBox(
+                        height: 30,
                       ),
-                    ),
-                  ],
-                ),),
+                      Center(
+                        child: CustomButtonWidget(
+                          buttonText: AppStringsAssets.loginButtonText,
+                          onPress: controller.handleLogin,
+                          buttonHeight: 50,
+                          buttonWidth: 350,
+                          buttonColor: AppColors.primary,
+                          textStyle: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                  fontSize: 18, color: AppColors.disabledInput),
+                          borderRadius: BorderRadius.circular(10),
+
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: 10,
                 ),

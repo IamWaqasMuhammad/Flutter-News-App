@@ -44,82 +44,100 @@ class SignupScreen extends StatelessWidget {
                   height: 50,
                 ),
 
-                /// EMAIL FIELD
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: AppStringsAssets.emailLabel,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium!
-                            .copyWith(
-                            fontSize: 14, color: AppColors.placeholder),
-                      ),
-                      TextSpan(
-                        text: AppStringsAssets.asterak,
-                        style: TextStyle(color: AppColors.error),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                CustomTextFieldWidget(
-                  textInputAction: TextInputAction.next,
-                  textInputType: TextInputType.name,
-                  controller: controller.emailController,
-                  focusNode: controller.emailFocus,
-                  onFieldSubmitted: (_) {
-                    FocusScope.of(context)
-                        .requestFocus(controller.passwordFocus);
-                  },
-                ),
+                Form(
+                  key: controller.formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// EMAIL FIELD
 
-                SizedBox(
-                  height: 15,
-                ),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: AppStringsAssets.emailLabel,
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium!
+                                .copyWith(
+                                fontSize: 14, color: AppColors.placeholder),
+                          ),
+                          TextSpan(
+                            text: AppStringsAssets.asterak,
+                            style: TextStyle(color: AppColors.error),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    CustomTextFieldWidget(
+                      textInputAction: TextInputAction.next,
+                      textInputType: TextInputType.name,
+                      controller: controller.emailController,
+                      focusNode: controller.emailFocus,
+                      onFieldSubmitted: (_) {
+                        FocusScope.of(context)
+                            .requestFocus(controller.passwordFocus);
+                      },
+                      validator: controller.validateEmail,
+                    ),
 
-                /// PASSWORD FIELD
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: AppStringsAssets.passwordLabel,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium!
-                            .copyWith(
-                            fontSize: 14, color: AppColors.placeholder),
+                    SizedBox(
+                      height: 15,
+                    ),
+
+                    /// PASSWORD FIELD
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: AppStringsAssets.passwordLabel,
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium!
+                                .copyWith(
+                                fontSize: 14, color: AppColors.placeholder),
+                          ),
+                          TextSpan(
+                            text: AppStringsAssets.asterak,
+                            style: TextStyle(color: AppColors.error),
+                          ),
+                        ],
                       ),
-                      TextSpan(
-                        text: AppStringsAssets.asterak,
-                        style: TextStyle(color: AppColors.error),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Obx(()=>CustomTextFieldWidget(
+                      textInputType: TextInputType.visiblePassword,
+                      textInputAction: TextInputAction.send,
+                      obscureText: !controller.isPasswordVisible.value,
+                      suffixIcon:  IconButton(
+                        icon: Icon(
+                          controller.isPasswordVisible.value
+                              ? Icons.visibility_outlined
+                              : Icons.visibility_off_outlined,
+                        ),
+                        onPressed: controller.togglePasswordVisibility,
                       ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                CustomTextFieldWidget(
-                  textInputType: TextInputType.visiblePassword,
-                  textInputAction: TextInputAction.send,
-                  obscureText: true,
-                  suffixIcon: Icon(Icons.visibility_off_outlined),
-                  controller: controller.passwordController,
-                  focusNode: controller.passwordFocus,
-                  onFieldSubmitted: (_) => controller.handleSignup(),
-                ),
+                      controller: controller.passwordController,
+                      focusNode: controller.passwordFocus,
+                      onFieldSubmitted: (_) => controller.handleSignup(),
+                      validator: controller.validatePassword,
+                    ),),
+                  ],
+                ),),
                 Row(
                   children: [
-                    Checkbox(
-                      value: true,
-                      onChanged: (value) {},
-                      activeColor: AppColors.primary,
-                      checkColor: AppColors.darkTitle,
-                    ),
+                   Obx(()=> Checkbox(
+                     value: controller.rememberMe.value,
+                     onChanged: controller.toggleRememberMe,
+                     activeColor: AppColors.primary,
+                     checkColor: AppColors.darkTitle,
+                   ),),
                     Text(
                       AppStringsAssets.rememberMeCheck,
                       style: Theme.of(context).textTheme.labelMedium!.copyWith(
