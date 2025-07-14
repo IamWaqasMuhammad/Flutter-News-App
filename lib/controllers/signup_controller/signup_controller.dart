@@ -26,7 +26,7 @@ class SignupController extends GetxController {
       Get.snackbar(
         'Account Register Successfully!',
         'You Register as $email',
-        backgroundColor: Colors.green.withOpacity(0.5),
+        backgroundColor: Colors.green.withOpacity(0.8),
         colorText: Colors.white,
       );
       Get.offNamed(AppRoutes.login);
@@ -34,7 +34,7 @@ class SignupController extends GetxController {
       Get.snackbar(
         'Account Register Failed!',
         'Please enter valid Email & Password',
-        backgroundColor: Colors.red.withOpacity(0.5),
+        backgroundColor: Colors.red.withOpacity(0.8),
         colorText: Colors.white,
       );
     }

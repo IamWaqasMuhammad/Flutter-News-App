@@ -25,7 +25,7 @@ class SignupScreen extends StatelessWidget {
                 Text(
                   AppStringsAssets.signUpTitle,
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    fontSize: 42,
+                    fontSize: 52,
                     color: AppColors.primary,
                     fontWeight: FontWeight.bold,
                   ),
