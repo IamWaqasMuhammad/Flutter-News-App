@@ -121,76 +121,73 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: 5,
                       ),
-                      Obx(()=>CustomTextFieldWidget(
-                        textInputType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.send,
-                        obscureText: !controller.isPasswordVisible.value,
-                        suffixIcon:  IconButton(
-                          icon: Icon(
-                            controller.isPasswordVisible.value
-                                ? Icons.visibility_outlined
-                                : Icons.visibility_off_outlined,
+                      Obx(
+                        () => CustomTextFieldWidget(
+                          textInputType: TextInputType.visiblePassword,
+                          textInputAction: TextInputAction.send,
+                          obscureText: !controller.isPasswordVisible.value,
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              controller.isPasswordVisible.value
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined,
+                            ),
+                            onPressed: controller.togglePasswordVisibility,
                           ),
-                          onPressed: controller.togglePasswordVisibility,
-                        ),
-                        controller: controller.passwordController,
-                        focusNode: controller.passwordFocus,
-                        onFieldSubmitted: (_) => controller.handleLogin(),
-                        validator: controller.validatePassword,
-                      ),),
-                      Row(
-                        children: [
-                          Obx(()=> Checkbox(
-                            value: controller.rememberMe.value,
-                            onChanged: controller.toggleRememberMe,
-                            activeColor: AppColors.primary,
-                            checkColor: AppColors.darkTitle,
-                          ),),
-                          Text(
-                            AppStringsAssets.rememberMeCheck,
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelMedium!
-                                .copyWith(
-                                  fontSize: 14,
-                                ),
-                          ),
-                          SizedBox(
-                            width: 18,
-                          ),
-                          CustomButtonWidget(
-                            buttonText: AppStringsAssets.forgetButtonText,
-                            onPress: () {},
-                            buttonHeight: 20,
-                            textStyle: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: AppColors.primary,
-                                ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Center(
-                        child: CustomButtonWidget(
-                          buttonText: AppStringsAssets.loginButtonText,
-                          onPress: controller.handleLogin,
-                          buttonHeight: 50,
-                          buttonWidth: 350,
-                          buttonColor: AppColors.primary,
-                          textStyle: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                  fontSize: 18, color: AppColors.disabledInput),
-                          borderRadius: BorderRadius.circular(10),
-
+                          controller: controller.passwordController,
+                          focusNode: controller.passwordFocus,
+                          onFieldSubmitted: (_) => controller.handleLogin(),
+                          validator: controller.validatePassword,
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Obx(
+                      () => Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: controller.toggleRememberMe,
+                        activeColor: AppColors.primary,
+                        checkColor: AppColors.darkTitle,
+                      ),
+                    ),
+                    Text(
+                      AppStringsAssets.rememberMeCheck,
+                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
+                            fontSize: 14,
+                          ),
+                    ),
+                    SizedBox(
+                      width: 18,
+                    ),
+                    CustomButtonWidget(
+                      buttonText: AppStringsAssets.forgetButtonText,
+                      onPress: () {},
+                      buttonHeight: 20,
+                      textStyle:
+                          Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                color: AppColors.primary,
+                              ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: CustomButtonWidget(
+                    buttonText: AppStringsAssets.loginButtonText,
+                    onPress: controller.handleLogin,
+                    buttonHeight: 50,
+                    buttonWidth: 350,
+                    buttonColor: AppColors.primary,
+                    textStyle: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontSize: 18, color: AppColors.disabledInput),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 SizedBox(

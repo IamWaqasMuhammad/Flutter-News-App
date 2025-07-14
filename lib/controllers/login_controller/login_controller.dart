@@ -21,14 +21,14 @@ class LoginController extends GetxController {
       Get.snackbar(
         'Account Login Successful!',
         'You logged in as $email',
-        backgroundColor: AppColors.success,
+        backgroundColor: Colors.green.withOpacity(0.5),
         colorText: Colors.white,
       );
     } else {
       Get.snackbar(
         'Account Login Failed!',
         'Please enter valid Email & Password',
-        backgroundColor: AppColors.error,
+        backgroundColor:  Colors.red.withOpacity(0.5),
         colorText: Colors.white,
       );
     }
