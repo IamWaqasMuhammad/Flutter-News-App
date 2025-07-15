@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">Khabar App</string>
+    <string name="facebook_app_id">1256090218745763</string>
+    <string name="fb_login_protocol_scheme">fb1256090218745763</string>
+    <string name="facebook_client_token">deedcc49104436f3728489be9c55e798</string>
+</resources>

@@ -1,4 +1,5 @@
 import 'package:flutter_news_app/constants/app_barrels/app_barrels.dart';
+import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
 
 class CustomIconButtonWidget extends StatelessWidget {
   final double? buttonHeight;
@@ -15,9 +16,13 @@ class CustomIconButtonWidget extends StatelessWidget {
   final double? imgHeight;
   final double? imgWidth;
   final BoxFit? boxFit;
+  final bool loading;
 
   const CustomIconButtonWidget({
     super.key,
+    required this.buttonText,
+    required this.onPress,
+    required this.imgUrl,
     this.buttonHeight,
     this.buttonWidth,
     this.buttonColor,
@@ -26,17 +31,14 @@ class CustomIconButtonWidget extends StatelessWidget {
     this.boxShadow,
     this.boxShape = BoxShape.rectangle,
     this.gradient,
-    required this.buttonText,
-    required this.onPress,
-    required this.imgUrl,
     this.boxFit,
     this.imgHeight,
     this.imgWidth,
+    this.loading = false,
   });
 
   @override
   Widget build(BuildContext context) {
-
     final BorderRadius effectiveRadius =
         borderRadius ?? BorderRadius.circular(8);
 
@@ -52,30 +54,37 @@ class CustomIconButtonWidget extends StatelessWidget {
           height: buttonHeight,
           width: buttonWidth,
           decoration: BoxDecoration(
-            color: buttonColor,
+            color: buttonColor?.withOpacity(0.8),
             borderRadius: effectiveRadius,
             boxShadow: boxShadow,
             shape: boxShape,
             gradient: gradient,
           ),
           alignment: Alignment.center,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              PNGImagesWidget(
-                imageUrl: imgUrl,
-                height: imgHeight,
-                width: imgWidth,
-              ),
-              Text(
-                buttonText,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontSize: 14, color: AppColors.placeholder),
-              ),
-            ],
-          ),
+          child: loading
+              ? CircularProgressIndicator(
+                  color: AppColors.disabledInput,
+                  strokeWidth: 2,
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    PNGImagesWidget(
+                      imageUrl: imgUrl,
+                      height: imgHeight,
+                      width: imgWidth,
+                    ),
+                    10.pw,
+                    Text(
+                      buttonText,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(fontSize: 14, color: AppColors.titleActive),
+                    ),
+                  ],
+                ),
         ),
       ),
     );

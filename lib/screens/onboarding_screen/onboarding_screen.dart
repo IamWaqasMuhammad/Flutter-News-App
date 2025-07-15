@@ -52,7 +52,7 @@ class OnboardingScreen extends StatelessWidget {
                   Row(
                     children: [
                       CustomButtonWidget(
-                        buttonText: 'Back',
+                        buttonText: AppStringsAssets.backButtonText,
                         onPress: controller.backPage,
                         buttonWidth: 50,
                         buttonHeight: 40,

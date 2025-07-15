@@ -3,7 +3,7 @@
 class AppStringsAssets {
 
   /// APP NAME
-  static const String appName = 'Khabar App';
+  static const String appName = 'Khabar';
 
 
   /// GLOBAL TEXT
@@ -12,8 +12,7 @@ class AppStringsAssets {
   static const String passwordLabel = 'Password';
   static const String rememberMeCheck = 'Remember Me';
   static const String orContinueWithText = 'or continue with';
-  static const String googleButtonText = 'Google';
-  static const String facebookButtonText = 'Facebook';
+  static const String googleButtonText = 'Login with Google';
 
 
   /// ONBOARDING SCREEN TEXT
@@ -32,6 +31,7 @@ class AppStringsAssets {
   static const String dontHaveAnAccountText = 'Don\'t have an Account?';
   static const String signUpButtonText = 'SignUp';
   static const String nextButtonText = 'Next';
+  static const String backButtonText = 'Back';
   static const String getStartedButtonText = 'Get Started';
 
 

@@ -136,7 +136,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           controller: controller.passwordController,
                           focusNode: controller.passwordFocus,
-                          onFieldSubmitted: (_) => controller.handleLogin(),
+                          onFieldSubmitted: (_) => controller.loginUser(),
                           validator: controller.validatePassword,
                         ),
                       ),
@@ -177,18 +177,19 @@ class LoginScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Center(
-                  child: CustomButtonWidget(
+                  child: Obx(()=>CustomButtonWidget(
                     buttonText: AppStringsAssets.loginButtonText,
-                    onPress: controller.handleLogin,
+                    onPress: controller.loginUser,
                     buttonHeight: 50,
                     buttonWidth: 350,
+                    loading: controller.isLoading.value,
                     buttonColor: AppColors.primary,
                     textStyle: Theme.of(context)
                         .textTheme
                         .bodyMedium!
                         .copyWith(fontSize: 18, color: AppColors.disabledInput),
                     borderRadius: BorderRadius.circular(10),
-                  ),
+                  ),),
                 ),
                 SizedBox(
                   height: 10,
@@ -202,36 +203,20 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CustomIconButtonWidget(
-                      buttonText: AppStringsAssets.googleButtonText,
-                      buttonColor: AppColors.button,
-                      buttonWidth: 154,
-                      buttonHeight: 48,
-                      borderRadius: BorderRadius.circular(8),
-                      onPress: () {},
-                      imgUrl: AppIconsAssets.googleIcon,
-                      imgWidth: 24,
-                      imgHeight: 24,
+                    Center(
+                      child: Obx(()=>CustomIconButtonWidget(
+                        buttonText: AppStringsAssets.googleButtonText,
+                        buttonColor: AppColors.button,
+                        buttonHeight: 50,
+                        buttonWidth: 350,
+                        loading: controller.isLoading.value,
+                        borderRadius: BorderRadius.circular(8),
+                        onPress: controller.loginWithGoogle,
+                        imgUrl: AppIconsAssets.googleIcon,
+                        imgWidth: 30,
+                        imgHeight: 30,
+                      ),),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    CustomIconButtonWidget(
-                      buttonText: AppStringsAssets.facebookButtonText,
-                      buttonColor: AppColors.button,
-                      buttonWidth: 154,
-                      buttonHeight: 48,
-                      borderRadius: BorderRadius.circular(8),
-                      onPress: () {},
-                      imgUrl: AppIconsAssets.facebookIcon,
-                      imgWidth: 24,
-                      imgHeight: 24,
-                    ),
-                  ],
-                ),
                 SizedBox(
                   height: 10,
                 ),

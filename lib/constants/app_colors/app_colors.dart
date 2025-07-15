@@ -13,8 +13,8 @@ class AppColors {
 
   // Colors
   static const Color primary = Color(0xFF3A7AFE);
-  static const Color error = Color(0xFFFF647C);
-  static const Color success = Color(0xFF22C55E);
+  static const Color error = Colors.red;
+  static const Color success = Colors.green;
   static const Color warning = Color(0xFFFACD4D);
 
   // Dark Mode
