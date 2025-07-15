@@ -136,7 +136,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           controller: controller.passwordController,
                           focusNode: controller.passwordFocus,
-                          onFieldSubmitted: (_) => controller.handleLogin(),
+                          onFieldSubmitted: (_) => controller.loginUser(),
                           validator: controller.validatePassword,
                         ),
                       ),
@@ -177,18 +177,19 @@ class LoginScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Center(
-                  child: CustomButtonWidget(
+                  child: Obx(()=>CustomButtonWidget(
                     buttonText: AppStringsAssets.loginButtonText,
-                    onPress: controller.handleLogin,
+                    onPress: controller.loginUser,
                     buttonHeight: 50,
                     buttonWidth: 350,
+                    loading: controller.isLoading.value,
                     buttonColor: AppColors.primary,
                     textStyle: Theme.of(context)
                         .textTheme
                         .bodyMedium!
                         .copyWith(fontSize: 18, color: AppColors.disabledInput),
                     borderRadius: BorderRadius.circular(10),
-                  ),
+                  ),),
                 ),
                 SizedBox(
                   height: 10,

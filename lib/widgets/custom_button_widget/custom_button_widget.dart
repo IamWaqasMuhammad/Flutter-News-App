@@ -1,4 +1,3 @@
-
 import '../../constants/app_barrels/app_barrels.dart';
 
 class CustomButtonWidget extends StatelessWidget {
@@ -13,6 +12,7 @@ class CustomButtonWidget extends StatelessWidget {
   final Gradient? gradient;
   final String buttonText;
   final void Function()? onPress;
+  final bool loading;
 
   const CustomButtonWidget({
     super.key,
@@ -27,11 +27,11 @@ class CustomButtonWidget extends StatelessWidget {
     this.gradient,
     required this.buttonText,
     required this.onPress,
+    this.loading = false,
   });
 
   @override
   Widget build(BuildContext context) {
-
     final BorderRadius effectiveRadius =
         borderRadius ?? BorderRadius.circular(8);
 
@@ -53,10 +53,15 @@ class CustomButtonWidget extends StatelessWidget {
             gradient: gradient,
           ),
           alignment: Alignment.center,
-          child: Text(
-            buttonText,
-            style: textStyle,
-          ),
+          child: loading
+              ? CircularProgressIndicator(
+                  color: AppColors.disabledInput,
+                  strokeWidth: 2,
+                )
+              : Text(
+                  buttonText,
+                  style: textStyle,
+                ),
         ),
       ),
     );

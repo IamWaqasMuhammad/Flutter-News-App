@@ -1,5 +1,7 @@
 
 
+import 'package:flutter_news_app/screens/main_screen/main_screen.dart';
+
 import '../../constants/app_barrels/app_barrels.dart';
 
 
@@ -27,6 +29,12 @@ class AppPages {
         name: AppRoutes.signup,
         page: () => const SignupScreen(),
         binding: SignupBinding(),
+        transition: Transition.fadeIn
+    ),
+    GetPage(
+        name: AppRoutes.main,
+        page: () => const MainScreen(),
+        //binding: SignupBinding(),
         transition: Transition.fadeIn
     ),
   ];

@@ -1,36 +1,64 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../constants/app_barrels/app_barrels.dart';
 
 class LoginController extends GetxController {
-  // Text controllers
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   final isPasswordVisible = false.obs;
+  final isLoading = false.obs;
+  final rememberMe = false.obs;
 
-  // Focus node
   final emailFocus = FocusNode();
   final passwordFocus = FocusNode();
 
   // Login method
-  void handleLogin() {
+  void loginUser() async {
     final email = emailController.text.trim();
-    final password = passwordController.text.trim();
+    final nameFromEmail = _extractNameFromEmail(email);
 
     if (formKey.currentState!.validate()) {
-      Get.snackbar(
-        'Account Login Successful!',
-        'You logged in as $email',
-        backgroundColor: Colors.green.withOpacity(0.8),
-        colorText: Colors.white,
-      );
-    } else {
-      Get.snackbar(
-        'Account Login Failed!',
-        'Please enter valid Email & Password',
-        backgroundColor:  Colors.red.withOpacity(0.8),
-        colorText: Colors.white,
-      );
+      isLoading.value = true;
+      try {
+        final userCredential = await _auth.signInWithEmailAndPassword(
+          email: email,
+          password: passwordController.text.trim(),
+        );
+
+        // Update user display name if not already set
+        if (userCredential.user?.displayName == null) {
+          await userCredential.user?.updateDisplayName(nameFromEmail);
+        }
+
+        isLoading.value = false;
+        Get.snackbar(
+          'Login Successful',
+          'Welcome back, ${userCredential.user?.displayName ?? nameFromEmail}',
+          backgroundColor: Colors.green.withOpacity(0.5),
+          colorText: Colors.white,
+        );
+        Get.offNamed(AppRoutes.main);
+      } catch (e) {
+        isLoading.value = false;
+        final errorMsg = e is FirebaseAuthException ? e.message : e.toString();
+        Get.snackbar(
+          'Login Failed',
+          errorMsg ?? 'An unknown error occurred',
+          backgroundColor: Colors.red.withOpacity(0.5),
+          colorText: Colors.white,
+        );
+      }
+    }
+  }
+
+  // Extract name from email (part before @)
+  String _extractNameFromEmail(String email) {
+    try {
+      return email.split('@').first;
+    } catch (e) {
+      return 'User'; // Default name if extraction fails
     }
   }
 
@@ -64,15 +92,10 @@ class LoginController extends GetxController {
     return null;
   }
 
-
   // Toggle method
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;
   }
-
-  final rememberMe = false.obs;
-
-// Toggle method
   void toggleRememberMe(bool? value) {
     rememberMe.value = value ?? false;
   }

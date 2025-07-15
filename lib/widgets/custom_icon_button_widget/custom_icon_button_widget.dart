@@ -15,6 +15,7 @@ class CustomIconButtonWidget extends StatelessWidget {
   final double? imgHeight;
   final double? imgWidth;
   final BoxFit? boxFit;
+  final bool loading;
 
   const CustomIconButtonWidget({
     super.key,
@@ -32,11 +33,11 @@ class CustomIconButtonWidget extends StatelessWidget {
     this.boxFit,
     this.imgHeight,
     this.imgWidth,
+    this.loading = false,
   });
 
   @override
   Widget build(BuildContext context) {
-
     final BorderRadius effectiveRadius =
         borderRadius ?? BorderRadius.circular(8);
 
@@ -59,23 +60,28 @@ class CustomIconButtonWidget extends StatelessWidget {
             gradient: gradient,
           ),
           alignment: Alignment.center,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              PNGImagesWidget(
-                imageUrl: imgUrl,
-                height: imgHeight,
-                width: imgWidth,
-              ),
-              Text(
-                buttonText,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontSize: 14, color: AppColors.placeholder),
-              ),
-            ],
-          ),
+          child: loading
+              ? CircularProgressIndicator(
+                  color: AppColors.disabledInput,
+                  strokeWidth: 2,
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    PNGImagesWidget(
+                      imageUrl: imgUrl,
+                      height: imgHeight,
+                      width: imgWidth,
+                    ),
+                    Text(
+                      buttonText,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(fontSize: 14, color: AppColors.placeholder),
+                    ),
+                  ],
+                ),
         ),
       ),
     );

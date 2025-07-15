@@ -32,6 +32,7 @@ class AppStringsAssets {
   static const String dontHaveAnAccountText = 'Don\'t have an Account?';
   static const String signUpButtonText = 'SignUp';
   static const String nextButtonText = 'Next';
+  static const String backButtonText = 'Back';
   static const String getStartedButtonText = 'Get Started';
 
 
