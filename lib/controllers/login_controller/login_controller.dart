@@ -1,122 +1,34 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import '../../constants/app_barrels/app_barrels.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginController extends GetxController {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // Text controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   final isPasswordVisible = false.obs;
-  final isLoading = false.obs;
-  final rememberMe = false.obs;
 
+  // Focus node
   final emailFocus = FocusNode();
   final passwordFocus = FocusNode();
 
   // Login method
-  void loginUser() async {
+  void handleLogin() {
     final email = emailController.text.trim();
-    final nameFromEmail = _extractNameFromEmail(email);
+    final password = passwordController.text.trim();
 
     if (formKey.currentState!.validate()) {
-      isLoading.value = true;
-      try {
-        final userCredential = await _auth.signInWithEmailAndPassword(
-          email: email,
-          password: passwordController.text.trim(),
-        );
-
-        // Update user display name if not already set
-        if (userCredential.user?.displayName == null) {
-          await userCredential.user?.updateDisplayName(nameFromEmail);
-        }
-
-        isLoading.value = false;
-        Get.snackbar(
-          'Login Successful',
-          'Welcome back, ${userCredential.user?.displayName ?? nameFromEmail}',
-          backgroundColor: Colors.green.withOpacity(0.5),
-          colorText: Colors.white,
-        );
-        Get.offNamed(AppRoutes.main);
-      } catch (e) {
-        isLoading.value = false;
-        final errorMsg = e is FirebaseAuthException ? e.message : e.toString();
-        Get.snackbar(
-          'Login Failed',
-          errorMsg ?? 'An unknown error occurred',
-          backgroundColor: Colors.red.withOpacity(0.5),
-          colorText: Colors.white,
-        );
-      }
-    }
-  }
-
-  // Extract name from email (part before @)
-  String _extractNameFromEmail(String email) {
-    try {
-      return email.split('@').first;
-    } catch (e) {
-      return 'User'; // Default name if extraction fails
-    }
-  }
-
-  /// Google SigIn
-  void loginWithGoogle() async {
-    try {
-      // Show loading dialog
-      Get.dialog(
-        const Center(
-            child: CircularProgressIndicator(
-          color: AppColors.primary,
-          strokeWidth: 2,
-        )),
-        barrierDismissible: false,
-      );
-
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-      if (googleUser == null) {
-        // User canceled the sign-in
-        Get.back(); // close loading
-        Get.snackbar(
-          'Login Cancelled',
-          'Google sign-in was cancelled by the user.',
-          backgroundColor: Colors.red.withOpacity(0.5),
-          colorText: Colors.white,
-        );
-        return;
-      }
-
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser.authentication;
-
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
-      await FirebaseAuth.instance.signInWithCredential(credential);
-
-      Get.back(); // close loading
-
       Get.snackbar(
-        'Login Successful',
-        'Login with ${googleUser.email}!',
-        backgroundColor: Colors.green.withOpacity(0.5),
+        'Account Login Successful!',
+        'You logged in as $email',
+        backgroundColor: Colors.green.withOpacity(0.8),
         colorText: Colors.white,
       );
-      Get.offNamed(AppRoutes.main);
-    } catch (e) {
-      Get.back(); // close loading if open
-
+    } else {
       Get.snackbar(
-        'Login Failed',
-        e.toString(),
-        backgroundColor: Colors.red.withOpacity(0.5),
+        'Account Login Failed!',
+        'Please enter valid Email & Password',
+        backgroundColor:  Colors.red.withOpacity(0.8),
         colorText: Colors.white,
       );
     }
@@ -152,11 +64,15 @@ class LoginController extends GetxController {
     return null;
   }
 
+
   // Toggle method
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;
   }
 
+  final rememberMe = false.obs;
+
+// Toggle method
   void toggleRememberMe(bool? value) {
     rememberMe.value = value ?? false;
   }
