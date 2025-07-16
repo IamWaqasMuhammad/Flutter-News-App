@@ -1,10 +1,12 @@
 import 'dart:math';
 import 'package:http/http.dart' as http;
+import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../constants/app_barrels/app_barrels.dart';
 
 class SplashController extends GetxController {
   final isChecking = true.obs;
-  final logicDelay = 3.obs; // Renamed for clarity
+  final logicDelay = 3.obs;
 
   @override
   void onInit() {
@@ -15,16 +17,30 @@ class SplashController extends GetxController {
   void startSplashFlow() async {
     isChecking.value = true;
 
-    // Run both delay checks in parallel
-    final results = await Future.wait([
-      measureInternetSpeed(),
-      Future(() => measureDeviceSpeed()),
-    ]);
+    int? internetSpeed;
 
-    int total = (results[0] + results[1]).clamp(2, 6);
+    // Keep checking for internet until available
+    while (internetSpeed == null) {
+      internetSpeed = await measureInternetSpeed();
+
+      if (internetSpeed == null) {
+        Get.snackbar(
+          "No Internet Connection",
+          "Please turn on internet!",
+          backgroundColor: Colors.red.withOpacity(0.5),
+          colorText: Colors.white,
+          duration: const Duration(seconds: 2),
+        );
+
+        await Future.delayed(const Duration(seconds: 3)); // Wait before retry
+      }
+    }
+
+    final deviceSpeed = measureDeviceSpeed();
+
+    int total = (internetSpeed + deviceSpeed).clamp(2, 6);
     logicDelay.value = total;
 
-    // Wait a total delay (for spinner effect)
     await Future.delayed(Duration(seconds: logicDelay.value));
     isChecking.value = false;
 
@@ -38,14 +54,16 @@ class SplashController extends GetxController {
     }
   }
 
-  Future<int> measureInternetSpeed() async {
+  Future<int?> measureInternetSpeed() async {
     final stopwatch = Stopwatch()..start();
     try {
-      await http
+      final response = await http
           .get(Uri.parse('https://www.google.com'))
           .timeout(const Duration(seconds: 2));
+
+      if (response.statusCode != 200) return null;
     } catch (_) {
-      return 2; // Fallback delay
+      return null;
     } finally {
       stopwatch.stop();
     }
@@ -61,4 +79,3 @@ class SplashController extends GetxController {
     return (stopwatch.elapsedMilliseconds ~/ 1000).clamp(1, 3);
   }
 }
-

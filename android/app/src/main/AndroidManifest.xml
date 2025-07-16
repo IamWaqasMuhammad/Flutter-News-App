@@ -6,7 +6,7 @@
 
     <application
         android:name="${applicationName}"
-        android:label="Khabar"
+        android:label="Khabar App"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="false"
         android:enableOnBackInvokedCallback="true">

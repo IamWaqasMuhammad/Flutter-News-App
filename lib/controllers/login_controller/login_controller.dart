@@ -161,8 +161,8 @@ class LoginController extends GetxController {
     final passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$&*~_]).{8,}$');
     if (value == null || value.trim().isEmpty) {
       return 'Please enter your password';
-    } else if (value.length < 8) {
-      return 'Password must be at least 8 characters';
+    } else if (value.length < 6) {
+      return 'Password must be at least 6 characters';
     } else if (!passwordRegex.hasMatch(value)) {
       return 'Must include 1 uppercase, 1 digit, and 1 special character';
     }

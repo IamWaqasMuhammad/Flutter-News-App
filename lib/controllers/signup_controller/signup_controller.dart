@@ -51,7 +51,7 @@ class SignupController extends GetxController {
         _closeDialog();
         Get.snackbar(
           'Verification Email Sent',
-          'A verification link has been sent to $email. Please check SPAM.',
+          'A verification link has been sent to $email. Please check SPAM folder.',
           backgroundColor: Colors.green.withOpacity(0.8),
           colorText: Colors.white,
         );
@@ -171,10 +171,10 @@ class SignupController extends GetxController {
 
   String? validatePassword(String? value) {
     final passwordRegex =
-    RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$&*~_]).{8,}$');
+    RegExp(r'^(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$&*~_]).{6,}$');
     if (value == null || value.isEmpty) return 'Password is required';
     if (!passwordRegex.hasMatch(value)) {
-      return 'Min 8 chars, 1 uppercase, 1 digit, 1 special char';
+      return 'Min 6 chars, 1 uppercase, 1 digit, 1 special char';
     }
     return null;
   }

@@ -19,14 +19,14 @@ class SplashScreen extends StatelessWidget {
           children: [
             PNGImagesWidget(
               imageUrl: AppIconsAssets.appIcon,
-              height: 120,
-              width: 120,
+              height: 150,
+              width: 150,
             ),
             const SizedBox(height: 20),
              Text(
-              "Khabar",
+              "Khabar App",
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                fontSize: 52,
+                fontSize: 44,
                 color: AppColors.primary,
                 fontWeight: FontWeight.bold,
               ),
