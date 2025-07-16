@@ -1,7 +1,5 @@
 import 'dart:math';
 import 'package:http/http.dart' as http;
-import 'package:get/get.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../../constants/app_barrels/app_barrels.dart';
 
 class SplashController extends GetxController {
