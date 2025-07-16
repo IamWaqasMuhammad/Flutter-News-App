@@ -43,11 +43,27 @@ dependencies:
   firebase_auth: ^5.6.2
   shared_preferences: ^2.5.3
   google_sign_in: ^6.1.5
-  flutter_facebook_auth: ^7.1.2
+  icons_launcher: ^3.0.1
+  animated_text_kit: ^4.2.3
+  connectivity_plus: ^6.0.3
+
+
+icons_launcher:
+  image_path: "assets/icons/ic_app.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
+
+
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

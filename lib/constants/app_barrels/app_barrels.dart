@@ -26,8 +26,8 @@ export 'package:flutter_news_app/bindings/signup_binding/signup_binding.dart';
 export 'package:flutter_news_app/screens/login_screen/login_screen.dart';
 export 'package:flutter_news_app/screens/signup_screen/singup_screen.dart';
 export 'package:flutter_news_app/constants/app_strings/app_strings_assets.dart';
-
-
+export 'package:firebase_auth/firebase_auth.dart';
+export 'package:google_sign_in/google_sign_in.dart';
 
 
 

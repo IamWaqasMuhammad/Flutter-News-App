@@ -136,7 +136,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           controller: controller.passwordController,
                           focusNode: controller.passwordFocus,
-                          onFieldSubmitted: (_) => controller.loginUser(),
+                          onFieldSubmitted: (_) => controller.handleLogin(),
                           validator: controller.validatePassword,
                         ),
                       ),
@@ -177,19 +177,18 @@ class LoginScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Center(
-                  child: Obx(()=>CustomButtonWidget(
+                  child: CustomButtonWidget(
                     buttonText: AppStringsAssets.loginButtonText,
-                    onPress: controller.loginUser,
+                    onPress: controller.handleLogin,
                     buttonHeight: 50,
                     buttonWidth: 350,
-                    loading: controller.isLoading.value,
                     buttonColor: AppColors.primary,
                     textStyle: Theme.of(context)
                         .textTheme
                         .bodyMedium!
                         .copyWith(fontSize: 18, color: AppColors.disabledInput),
                     borderRadius: BorderRadius.circular(10),
-                  ),),
+                  ),
                 ),
                 SizedBox(
                   height: 10,
@@ -204,18 +203,17 @@ class LoginScreen extends StatelessWidget {
                   height: 10,
                 ),
                     Center(
-                      child: Obx(()=>CustomIconButtonWidget(
+                      child: CustomIconButtonWidget(
                         buttonText: AppStringsAssets.googleButtonText,
                         buttonColor: AppColors.button,
                         buttonHeight: 50,
                         buttonWidth: 350,
-                        loading: controller.isLoading.value,
                         borderRadius: BorderRadius.circular(8),
                         onPress: controller.loginWithGoogle,
                         imgUrl: AppIconsAssets.googleIcon,
                         imgWidth: 30,
                         imgHeight: 30,
-                      ),),
+                      ),
                     ),
                 SizedBox(
                   height: 10,

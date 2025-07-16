@@ -1,8 +1,3 @@
-
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
 import '../../constants/app_barrels/app_barrels.dart';
 
 class MainScreen extends StatelessWidget {
@@ -16,10 +11,14 @@ class MainScreen extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(onPressed: () async {
-          await FacebookAuth.instance.logOut();
-          await GoogleSignIn().signOut();
-          FirebaseAuth.instance.signOut();
-          Get.offNamed(AppRoutes.login);
+          
+              final GoogleSignIn googleSignIn = GoogleSignIn();
+              await googleSignIn.signOut();
+              Get.offNamed(AppRoutes.login);
+           
+              print('Error signing out');
+              // Show a message to the user or handle the error appropriately
+
         }, child: Text('Logout')),
       ),
     );

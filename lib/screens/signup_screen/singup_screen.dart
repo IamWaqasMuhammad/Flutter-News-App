@@ -124,7 +124,7 @@ class SignupScreen extends StatelessWidget {
                           ),
                           controller: controller.passwordController,
                           focusNode: controller.passwordFocus,
-                          onFieldSubmitted: (_) => controller.signupUser(),
+                          onFieldSubmitted: (_) => controller.registerUser(),
                           validator: controller.validatePassword,
                         ),
                       ),
@@ -153,21 +153,17 @@ class SignupScreen extends StatelessWidget {
                   height: 40,
                 ),
                 Center(
-                  child: Obx(
-                    () => CustomButtonWidget(
-                      buttonText: AppStringsAssets.signUpButtonText,
-                      onPress: controller.signupUser,
-                      buttonHeight: 50,
-                      buttonWidth: 350,
-                      loading: controller.isLoading.value,
-                      buttonColor: AppColors.primary,
-                      textStyle: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(
-                              fontSize: 18, color: AppColors.disabledInput),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                  child: CustomButtonWidget(
+                    buttonText: AppStringsAssets.loginButtonText,
+                    onPress: controller.registerUser,
+                    buttonHeight: 50,
+                    buttonWidth: 350,
+                    buttonColor: AppColors.primary,
+                    textStyle: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(fontSize: 18, color: AppColors.disabledInput),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 SizedBox(
@@ -182,20 +178,20 @@ class SignupScreen extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Obx(
-                  () => CustomIconButtonWidget(
+                Center(
+                  child:CustomIconButtonWidget(
                     buttonText: AppStringsAssets.googleButtonText,
                     buttonColor: AppColors.button,
-                    buttonWidth: 154,
-                    buttonHeight: 48,
-                    loading: controller.isLoading.value,
+                    buttonHeight: 50,
+                    buttonWidth: 350,
                     borderRadius: BorderRadius.circular(8),
-                    onPress: controller.loginWithGoogle,
+                    onPress: controller.registerWithGoogle,
                     imgUrl: AppIconsAssets.googleIcon,
-                    imgWidth: 24,
-                    imgHeight: 24,
+                    imgWidth: 30,
+                    imgHeight: 30,
                   ),
                 ),
+
                 SizedBox(
                   width: 5,
                 ),
