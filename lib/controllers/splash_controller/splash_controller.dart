@@ -1,4 +1,4 @@
-import 'dart:math';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 import '../../constants/app_barrels/app_barrels.dart';
 
@@ -15,40 +15,34 @@ class SplashController extends GetxController {
   void startSplashFlow() async {
     isChecking.value = true;
 
-    int? internetSpeed;
+    while (!await isInternetAvailable()) {
+      Get.snackbar(
+        "No Internet Connection",
+        "Please turn on internet first.",
+        backgroundColor: Colors.red.withOpacity(0.5),
+        colorText: Colors.white,
+        duration: const Duration(seconds: 3),
+        icon: Icon(Icons.wifi_off_outlined),
+        shouldIconPulse: true,
+      );
 
-    // Keep checking until internet is available
-    while (internetSpeed == null) {
-      internetSpeed = await measureInternetSpeed();
-
-      if (internetSpeed == null) {
-        Get.snackbar(
-          "No Internet Connection",
-          "Please turn on internet first.",
-          backgroundColor: Colors.red.withOpacity(0.5),
-          colorText: Colors.white,
-          duration: const Duration(seconds: 3),
-        );
-
-        await Future.delayed(const Duration(seconds: 3));
-      }
+      await Future.delayed(const Duration(seconds: 3));
     }
 
-    // 🐢 Show snackbar for weak internet (if speed > 2 seconds)
-    if (internetSpeed > 2) {
+    final result = await Connectivity().checkConnectivity();
+    if (result == ConnectivityResult.mobile) {
       Get.snackbar(
         "Weak Internet",
-        "Your internet connection is weak.",
+        "Mobile data may be slower than Wi-Fi.",
         backgroundColor: Colors.white.withOpacity(0.5),
         colorText: Colors.black,
         duration: const Duration(seconds: 3),
+        icon: Icon(Icons.network_wifi_1_bar),
+        shouldIconPulse: true,
       );
     }
 
-    final deviceSpeed = measureDeviceSpeed();
-    int total = (internetSpeed + deviceSpeed).clamp(2, 6);
-    logicDelay.value = total;
-
+    logicDelay.value = 3;
     await Future.delayed(Duration(seconds: logicDelay.value));
     isChecking.value = false;
 
@@ -62,30 +56,16 @@ class SplashController extends GetxController {
     }
   }
 
-  Future<int?> measureInternetSpeed() async {
-    final stopwatch = Stopwatch()..start();
+  Future<bool> isInternetAvailable() async {
+    final connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.none) return false;
+
     try {
-      final response = await http
-          .get(Uri.parse('https://www.google.com'))
-          .timeout(const Duration(seconds: 4));
-
-      if (response.statusCode != 200) return null;
+      final result = await http.get(Uri.parse('https://www.google.com'))
+          .timeout(const Duration(seconds: 3));
+      return result.statusCode == 200;
     } catch (_) {
-      return null;
-    } finally {
-      stopwatch.stop();
+      return false;
     }
-
-    int delay = (stopwatch.elapsedMilliseconds ~/ 1000).clamp(1, 4);
-    return delay;
-  }
-
-  int measureDeviceSpeed() {
-    final stopwatch = Stopwatch()..start();
-    final random = Random();
-    final List<int> list = List.generate(10000, (_) => random.nextInt(10000));
-    list.sort();
-    stopwatch.stop();
-    return (stopwatch.elapsedMilliseconds ~/ 1000).clamp(1, 3);
   }
 }
