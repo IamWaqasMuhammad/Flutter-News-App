@@ -25,9 +25,8 @@ class SplashController extends GetxController {
         Get.snackbar(
           "No Internet Connection",
           "Please turn on internet first.",
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Get.theme.colorScheme.error,
-          colorText: Get.theme.colorScheme.onError,
+          backgroundColor: Colors.red.withOpacity(0.5),
+          colorText: Colors.white,
           duration: const Duration(seconds: 3),
         );
 
