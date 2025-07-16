@@ -43,20 +43,14 @@ dependencies:
   firebase_auth: ^5.6.2
   shared_preferences: ^2.5.3
   google_sign_in: ^6.1.5
-  icons_launcher: ^3.0.1
   animated_text_kit: ^4.2.3
   connectivity_plus: ^6.0.3
+  flutter_launcher_icons: ^0.14.4
 
-
-icons_launcher:
+flutter_icons:
+  android: true
+  ios: true
   image_path: "assets/icons/ic_app.png"
-  platforms:
-    android:
-      enable: true
-    ios:
-      enable: true
-
-
 
 
 
