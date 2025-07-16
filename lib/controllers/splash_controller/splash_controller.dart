@@ -40,7 +40,6 @@ class SplashController extends GetxController {
       Get.snackbar(
         "Weak Internet",
         "Your internet connection is weak.",
-        snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.white.withOpacity(0.5),
         colorText: Colors.black,
         duration: const Duration(seconds: 3),
