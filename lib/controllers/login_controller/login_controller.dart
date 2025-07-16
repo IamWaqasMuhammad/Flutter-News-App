@@ -174,7 +174,7 @@ class LoginController extends GetxController {
 
   void _showLoadingDialog() {
     Get.dialog(
-      const Center(child: CircularProgressIndicator(color: AppColors.primary)),
+      const Center(child: CircularProgressIndicator(color: AppColors.primary,strokeWidth: 2,)),
       barrierDismissible: false,
     );
   }

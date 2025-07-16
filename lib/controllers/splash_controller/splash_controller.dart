@@ -34,7 +34,7 @@ class SplashController extends GetxController {
       Get.snackbar(
         "Weak Internet",
         "Mobile data may be slower than Wi-Fi.",
-        backgroundColor: Colors.white.withOpacity(0.5),
+        backgroundColor: Colors.orange.withOpacity(0.5),
         colorText: Colors.black,
         duration: const Duration(seconds: 3),
         icon: Icon(Icons.network_wifi_1_bar),

@@ -31,7 +31,7 @@ class CustomTextFieldWidget extends StatelessWidget {
       keyboardType: textInputType,
       textInputAction: textInputAction,
       obscureText: obscureText,
-      style: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 16),
+      style: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 16,color: AppColors.primary),
       onFieldSubmitted: onFieldSubmitted,
       focusNode: focusNode,
       decoration: InputDecoration(
