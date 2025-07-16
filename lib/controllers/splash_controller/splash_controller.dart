@@ -19,25 +19,37 @@ class SplashController extends GetxController {
 
     int? internetSpeed;
 
-    // Keep checking for internet until available
+    // Keep checking until internet is available
     while (internetSpeed == null) {
       internetSpeed = await measureInternetSpeed();
 
       if (internetSpeed == null) {
         Get.snackbar(
           "No Internet Connection",
-          "Please turn on internet!",
-          backgroundColor: Colors.red.withOpacity(0.5),
-          colorText: Colors.white,
-          duration: const Duration(seconds: 2),
+          "Please turn on internet first.",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Get.theme.colorScheme.error,
+          colorText: Get.theme.colorScheme.onError,
+          duration: const Duration(seconds: 3),
         );
 
-        await Future.delayed(const Duration(seconds: 3)); // Wait before retry
+        await Future.delayed(const Duration(seconds: 3));
       }
     }
 
-    final deviceSpeed = measureDeviceSpeed();
+    // 🐢 Show snackbar for weak internet (if speed > 2 seconds)
+    if (internetSpeed > 2) {
+      Get.snackbar(
+        "Weak Internet",
+        "Your internet connection is weak.",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Get.theme.colorScheme.secondary,
+        colorText: Get.theme.colorScheme.onSecondary,
+        duration: const Duration(seconds: 3),
+      );
+    }
 
+    final deviceSpeed = measureDeviceSpeed();
     int total = (internetSpeed + deviceSpeed).clamp(2, 6);
     logicDelay.value = total;
 
@@ -59,7 +71,7 @@ class SplashController extends GetxController {
     try {
       final response = await http
           .get(Uri.parse('https://www.google.com'))
-          .timeout(const Duration(seconds: 2));
+          .timeout(const Duration(seconds: 4));
 
       if (response.statusCode != 200) return null;
     } catch (_) {
@@ -67,7 +79,9 @@ class SplashController extends GetxController {
     } finally {
       stopwatch.stop();
     }
-    return (stopwatch.elapsedMilliseconds ~/ 1000).clamp(1, 3);
+
+    int delay = (stopwatch.elapsedMilliseconds ~/ 1000).clamp(1, 4);
+    return delay;
   }
 
   int measureDeviceSpeed() {
