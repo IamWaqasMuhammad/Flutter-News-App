@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../constants/app_barrels/app_barrels.dart';
 
 class MainScreen extends StatelessWidget {
@@ -13,10 +15,11 @@ class MainScreen extends StatelessWidget {
         child: ElevatedButton(onPressed: () async {
           
               final GoogleSignIn googleSignIn = GoogleSignIn();
+              final prefs = await SharedPreferences.getInstance();
               await googleSignIn.signOut();
-              Get.offNamed(AppRoutes.login);
-           
-              print('Error signing out');
+              await FirebaseAuth.instance.signOut();
+              await prefs.setBool('isLoggedOut', true);
+              Get.offAllNamed(AppRoutes.login);
               // Show a message to the user or handle the error appropriately
 
         }, child: Text('Logout')),
