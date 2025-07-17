@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:flutter_news_app/constants/app_barrels/app_barrels.dart';
 
 class SignupRedirectRow extends StatelessWidget {

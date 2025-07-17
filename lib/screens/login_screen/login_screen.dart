@@ -1,11 +1,4 @@
-import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
-import 'package:flutter_news_app/screens/login_screen/widgets/Login_remember_and_forgot.dart';
-import 'package:flutter_news_app/screens/login_screen/widgets/login_button.dart';
-import 'package:flutter_news_app/screens/login_screen/widgets/login_form_section.dart';
-import 'package:flutter_news_app/screens/login_screen/widgets/login_title_section.dart';
-import 'package:flutter_news_app/screens/login_screen/widgets/or_continue_with_google.dart';
-import 'package:flutter_news_app/screens/login_screen/widgets/signup_redirect_row.dart';
-import 'package:get/get.dart';
+
 import '../../constants/app_barrels/app_barrels.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -30,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                 const LoginRememberAndForgot(),
                 30.ph,
                 LoginButton(controller),
-                const OrContinueWithGoogle(),
+                const LoginOrContinueWithGoogle(),
                 10.ph,
                 const SignupRedirectRow(),
               ],

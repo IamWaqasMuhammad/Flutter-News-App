@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import '../../../constants/app_barrels/app_barrels.dart';
 
 class SignupRememberMe extends StatelessWidget {

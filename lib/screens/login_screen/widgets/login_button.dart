@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:flutter_news_app/constants/app_barrels/app_barrels.dart';
-import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton(LoginController controller, {super.key});

@@ -1,9 +1,4 @@
 
-
-import 'package:flutter_news_app/bindings/forget_password_binding/forget_password_binding.dart';
-import 'package:flutter_news_app/screens/forgot_password_screen/forgot_password_screen.dart';
-import 'package:flutter_news_app/screens/main_screen/main_screen.dart';
-
 import '../../constants/app_barrels/app_barrels.dart';
 
 

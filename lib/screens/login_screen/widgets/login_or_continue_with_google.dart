@@ -1,9 +1,8 @@
-import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
 
 import '../../../constants/app_barrels/app_barrels.dart';
 
-class OrContinueWithGoogle extends StatelessWidget {
-  const OrContinueWithGoogle({super.key});
+class LoginOrContinueWithGoogle extends StatelessWidget {
+  const LoginOrContinueWithGoogle({super.key});
 
   @override
   Widget build(BuildContext context) {

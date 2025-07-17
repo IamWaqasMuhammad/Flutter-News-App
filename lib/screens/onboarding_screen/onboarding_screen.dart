@@ -1,6 +1,4 @@
-import 'package:flutter_news_app/screens/onboarding_screen/widgets/onbaord_back_and_next_buttons.dart';
-import 'package:flutter_news_app/screens/onboarding_screen/widgets/onboard_pages_widget.dart';
-import 'package:flutter_news_app/screens/onboarding_screen/widgets/onboarding_dots_widgets.dart';
+
 
 import '../../constants/app_barrels/app_barrels.dart';
 

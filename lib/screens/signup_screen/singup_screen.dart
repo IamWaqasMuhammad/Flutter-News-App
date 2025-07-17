@@ -1,11 +1,4 @@
-import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
-import 'package:flutter_news_app/screens/signup_screen/widgets/login_redirect_row.dart';
-import 'package:flutter_news_app/screens/signup_screen/widgets/or_continue_with_google.dart';
-import 'package:flutter_news_app/screens/signup_screen/widgets/signup_button.dart';
-import 'package:flutter_news_app/screens/signup_screen/widgets/signup_form_section.dart';
-import 'package:flutter_news_app/screens/signup_screen/widgets/signup_remember_me.dart';
-import 'package:flutter_news_app/screens/signup_screen/widgets/signup_title_section.dart';
-import 'package:get/get.dart';
+
 import '../../constants/app_barrels/app_barrels.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -31,7 +24,7 @@ class SignupScreen extends StatelessWidget {
                 40.ph,
                 SignupButton(controller),
                 10.ph,
-                const OrContinueWithGoogle(),
+                const SignupOrContinueWithGoogle(),
                 10.ph,
                 const LoginRedirectRow(),
               ],

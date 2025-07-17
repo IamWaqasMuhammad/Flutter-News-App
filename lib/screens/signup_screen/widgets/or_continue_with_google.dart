@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import '../../../constants/app_barrels/app_barrels.dart';
 
-class OrContinueWithGoogle extends StatelessWidget {
-  const OrContinueWithGoogle({super.key});
+class SignupOrContinueWithGoogle extends StatelessWidget {
+  const SignupOrContinueWithGoogle({super.key});
 
   @override
   Widget build(BuildContext context) {

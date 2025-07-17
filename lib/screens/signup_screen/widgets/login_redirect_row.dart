@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import '../../../constants/app_barrels/app_barrels.dart';
 
 class LoginRedirectRow extends StatelessWidget {

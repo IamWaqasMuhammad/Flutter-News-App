@@ -1,5 +1,3 @@
-import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 
 import '../../../constants/app_barrels/app_barrels.dart';
 

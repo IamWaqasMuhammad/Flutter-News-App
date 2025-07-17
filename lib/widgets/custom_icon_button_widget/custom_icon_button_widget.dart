@@ -1,5 +1,4 @@
 import 'package:flutter_news_app/constants/app_barrels/app_barrels.dart';
-import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
 
 class CustomIconButtonWidget extends StatelessWidget {
   final double? buttonHeight;

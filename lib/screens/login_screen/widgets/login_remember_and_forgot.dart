@@ -1,6 +1,4 @@
-import 'package:flutter_news_app/controllers/forget_password_controller/forget_password_controller.dart';
 import 'package:flutter_news_app/constants/app_barrels/app_barrels.dart';
-import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
 
 class LoginRememberAndForgot extends StatelessWidget {
    const LoginRememberAndForgot({super.key});
