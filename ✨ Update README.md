@@ -39,20 +39,19 @@
 
 ```bash
 lib/
-├── core/               # Utilities, constants, themes
-├── data/               # API and data sources
-├── models/             # Data models
-├── modules/            # Features (news, auth, profile)
-│   ├── news/
-│   ├── auth/
-│   └── ...
-├── services/           # Firebase, MongoDB, network services
-├── ui/                 # Screens and widgets
-└── main.dart           # App entry point
+├── bindings/       # Bindings for GetX controllers
+├── constants/      # Application-wide constants (colors, text, keys, etc.)
+├── controllers/    # GetX Controllers managing logic/state
+├── extensions/     # Custom widget and utility extensions
+├── screens/        # UI screens grouped by feature
+├── services/       # Firebase, MongoDB, and API service logic
+├── utils/          # App-wide utilities and route management
+├── widgets/        # Reusable common widgets (buttons, cards, etc.)
+└── main.dart       # App entry point
 
 # Clone the repository
-git clone https://github.com/yourusername/khabar_app.git
-cd khabar_app
+git clone https://github.com/IamWaqasMuhammad/Flutter-News-App.git
+cd Flutter-News-App
 
 # Get packages
 flutter pub get
@@ -61,11 +60,8 @@ flutter pub get
 flutter run
 
 ---
+## 🔗 Connect with Me
 
-### ✅ **Next Step for You**
-Replace the following placeholders with your actual details:
-- `yourusername` → your GitHub, LinkedIn, Twitter, Instagram usernames
-- `youremail@example.com` → your actual email
-- `yourportfolio.com` → your personal website (if any)
-
-Would you like me to generate a downloadable `README.md` file for this as well?
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/waqas-muhammad-0ba609290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)  
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/IamWaqasMuhammad)  
+📧 **Email:** [waqasmuhammad5254@gmail.com](mailto:waqasmuhammad5254@gmail.com)
