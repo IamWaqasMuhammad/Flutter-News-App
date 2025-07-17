@@ -28,7 +28,7 @@ class LoginRememberAndForgot extends StatelessWidget {
         18.pw,
         CustomButtonWidget(
           buttonText: AppStringsAssets.forgetButtonText,
-          onPress: ()=>Get.offNamed(AppRoutes.forget),
+          onPress: ()=>Get.toNamed(AppRoutes.forget),
           buttonHeight: 20,
           textStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
             color: AppColors.primary,

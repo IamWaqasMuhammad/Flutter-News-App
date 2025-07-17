@@ -29,10 +29,12 @@ class ForgotPasswordController extends GetxController {
 
     try {
       Get.dialog(
-        const Center(child: CircularProgressIndicator(
-          color: AppColors.primary,
-          strokeWidth: 2,
-        )),
+        const Center(
+          child: CircularProgressIndicator(
+            color: AppColors.primary,
+            strokeWidth: 2,
+          ),
+        ),
         barrierDismissible: false,
       );
 
@@ -45,15 +47,30 @@ class ForgotPasswordController extends GetxController {
         "Check your SPAM folder for the reset link",
         backgroundColor: AppColors.success.withOpacity(0.5),
         colorText: Colors.white,
-        duration: Duration(seconds: 4),
+        duration: const Duration(seconds: 4),
       );
-    } catch (e) {
-      // ✅ Close loading dialog on error
-      Get.back();
+    } on FirebaseAuthException catch (e) {
+      Get.back(); // Close the loading dialog
+
+      String message = "Something went wrong.";
+      if (e.code == 'user-not-found') {
+        message = "No user found with this email.";
+      } else if (e.code == 'invalid-email') {
+        message = "The email address is invalid.";
+      }
 
       Get.snackbar(
         "Error",
-        e.toString(),
+        message,
+        backgroundColor: AppColors.error.withOpacity(0.5),
+        colorText: Colors.white,
+      );
+    } catch (e) {
+      Get.back(); // Close the loading dialog
+
+      Get.snackbar(
+        "Error",
+        "Unexpected error occurred: ${e.toString()}",
         backgroundColor: AppColors.error.withOpacity(0.5),
         colorText: Colors.white,
       );

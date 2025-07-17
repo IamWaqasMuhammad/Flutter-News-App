@@ -57,7 +57,7 @@ class SignupController extends GetxController {
           duration: Duration(seconds: 4),
         );
 
-        Get.offNamed(AppRoutes.login);
+        Get.offAllNamed(AppRoutes.login);
       }
     } on FirebaseAuthException catch (e) {
       _closeDialog();
@@ -134,7 +134,7 @@ class SignupController extends GetxController {
         colorText: Colors.white,
       );
 
-      Get.offNamed(AppRoutes.main);
+      Get.offAllNamed(AppRoutes.main);
     } on FirebaseAuthException catch (e) {
       _closeDialog();
       Get.snackbar(

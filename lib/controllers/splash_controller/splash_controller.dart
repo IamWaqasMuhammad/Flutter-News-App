@@ -56,13 +56,13 @@ class SplashController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 500));
 
     if (user != null && !isLoggedOut) {
-      Get.offNamed(AppRoutes.main);
+      Get.offAllNamed(AppRoutes.main);
     } else if (isLoggedOut) {
       // Clear the flag after first use
       await prefs.remove('isLoggedOut');
-      Get.offNamed(AppRoutes.login);
+      Get.offAllNamed(AppRoutes.login);
     } else {
-      Get.offNamed(AppRoutes.onboarding);
+      Get.offAllNamed(AppRoutes.onboarding);
     }
   }
 

@@ -96,41 +96,41 @@ class LoginController extends GetxController {
 
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
       if (googleUser == null) {
         _closeDialog();
         Get.snackbar(
           'Cancelled',
-          'Google sign-in was cancelled.',
+          'Google Login cancelled',
           backgroundColor: Colors.orange.withOpacity(0.8),
           colorText: Colors.white,
         );
         return;
       }
 
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+      final GoogleSignInAuthentication googleAuth =
+      await googleUser.authentication;
 
       final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
+        accessToken: googleAuth.accessToken,
       );
 
       await FirebaseAuth.instance.signInWithCredential(credential);
 
       _closeDialog();
       Get.snackbar(
-        'Login Successful',
-        'Signed in with Google as ${googleUser.email}',
+        'Login with Google',
+        'Welcome, ${googleUser.displayName ?? googleUser.email}',
         backgroundColor: Colors.green.withOpacity(0.8),
         colorText: Colors.white,
       );
 
-      Get.offNamed(AppRoutes.main);
+      Get.offAllNamed(AppRoutes.main);
     } on FirebaseAuthException catch (e) {
       _closeDialog();
       Get.snackbar(
-        'Google Sign-in Failed',
-        e.message ?? 'Something went wrong',
+        'Google Login Failed',
+        e.message ?? 'Firebase error occurred',
         backgroundColor: Colors.red.withOpacity(0.8),
         colorText: Colors.white,
       );
@@ -146,6 +146,7 @@ class LoginController extends GetxController {
       isLoading.value = false;
     }
   }
+
 
   String? validateEmail(String? value) {
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');

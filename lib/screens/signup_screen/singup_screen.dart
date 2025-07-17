@@ -3,7 +3,7 @@ import 'package:flutter_news_app/screens/signup_screen/widgets/login_redirect_ro
 import 'package:flutter_news_app/screens/signup_screen/widgets/or_continue_with_google.dart';
 import 'package:flutter_news_app/screens/signup_screen/widgets/signup_button.dart';
 import 'package:flutter_news_app/screens/signup_screen/widgets/signup_form_section.dart';
-import 'package:flutter_news_app/screens/signup_screen/widgets/signup_remember_and_forgot.dart';
+import 'package:flutter_news_app/screens/signup_screen/widgets/signup_remember_me.dart';
 import 'package:flutter_news_app/screens/signup_screen/widgets/signup_title_section.dart';
 import 'package:get/get.dart';
 import '../../constants/app_barrels/app_barrels.dart';

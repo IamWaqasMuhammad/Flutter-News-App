@@ -20,7 +20,9 @@ class SignupRedirectRow extends StatelessWidget {
           ),
           CustomButtonWidget(
             buttonText: AppStringsAssets.signUpButtonText,
-            onPress: () => Get.offNamed(AppRoutes.signup),
+            onPress: () {
+              Get.toNamed(AppRoutes.signup);
+            },
             textStyle: Theme.of(context).textTheme.headlineLarge!.copyWith(
               fontSize: 14,
             ),

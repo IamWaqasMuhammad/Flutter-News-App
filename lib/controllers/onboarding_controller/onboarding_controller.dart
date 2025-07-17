@@ -11,7 +11,7 @@ class OnboardingController extends GetxController {
       pageController.nextPage(duration: Duration(microseconds: 300), curve: Curves.easeIn);
     }
     else{
-      Get.offNamed(AppRoutes.login);
+      Get.offAllNamed(AppRoutes.login);
     }
   }
 

@@ -19,7 +19,9 @@ class LoginRedirectRow extends StatelessWidget {
           ),
           CustomButtonWidget(
             buttonText: AppStringsAssets.loginButtonText,
-            onPress: () => Get.offNamed(AppRoutes.login),
+            onPress: () {
+              Get.back();
+            },
             textStyle: Theme.of(context).textTheme.headlineLarge!.copyWith(
               fontSize: 14,
             ),
