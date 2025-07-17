@@ -1,6 +1,6 @@
 class AppStringsAssets {
   /// APP NAME
-  static const String appName = 'Khabar';
+  static const String appName = 'Khabar App';
 
   /// GLOBAL TEXT
   static const asterak = '*';
@@ -9,6 +9,9 @@ class AppStringsAssets {
   static const rememberMeCheck = 'Remember Me';
   static const orContinueWithText = 'or continue with';
   static const googleButtonText = 'Login with Google';
+
+  /// SPLASH SCREEN TEXT
+  static const splashtagLineText = "Your Daily Dose of Verified News";
 
   /// ONBOARDING SCREEN TEXT
   static const onboardTitle1 = 'Stay Updated, Stay Ahead';

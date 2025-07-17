@@ -1,9 +1,11 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news_app/extensions/sized_box_extension/sized_box_extension.dart';
+import 'package:flutter_news_app/screens/splash%20_screen/widgets/splash_app_name_tagline_text_widget.dart';
+import 'package:flutter_news_app/screens/splash%20_screen/widgets/splash_loading_widget.dart';
+import 'package:flutter_news_app/screens/splash%20_screen/widgets/splash_logo_widget.dart';
 import 'package:get/get.dart';
 
 import '../../constants/app_barrels/app_barrels.dart';
-import '../../constants/app_icons/app_icons_assets.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -17,51 +19,10 @@ class SplashScreen extends StatelessWidget {
         child: Obx(() => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            PNGImagesWidget(
-              imageUrl: AppIconsAssets.appIcon,
-              height: 150,
-              width: 150,
-            ),
-            const SizedBox(height: 20),
-             Text(
-              "Khabar App",
-              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                fontSize: 44,
-                color: AppColors.primary,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-
-            // Animated tagline
-            AnimatedTextKit(
-              animatedTexts: [
-                TyperAnimatedText(
-                  "Your Daily Dose of Verified News",
-                  textStyle: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(fontSize: 18),
-                  speed: const Duration(milliseconds: 70),
-                ),
-              ],
-              totalRepeatCount: 1, // Run only once (or set to infinite)
-              pause: const Duration(milliseconds: 500),
-              displayFullTextOnTap: true,
-              isRepeatingAnimation: false,
-            ),
-            const SizedBox(height: 30),
-
-            // Loading spinner (animated switch for smoother UX)
-            AnimatedSwitcher(
-              duration: const Duration(milliseconds: 300),
-              child: controller.isChecking.value
-                  ? const CircularProgressIndicator(
-                color: AppColors.primary,
-                strokeWidth: 2,
-              )
-                  : null,
-            ),
+            SplashLogoWidget(),
+            20.ph,
+            SplashAppNameTaglineTextWidget(),
+            SplashLoadingWidget(controller: controller),
           ],
         )),
       ),
