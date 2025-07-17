@@ -54,6 +54,7 @@ class SignupController extends GetxController {
           'A verification link has been sent to $email. Please check SPAM folder.',
           backgroundColor: Colors.green.withOpacity(0.8),
           colorText: Colors.white,
+          duration: Duration(seconds: 4),
         );
 
         Get.offNamed(AppRoutes.login);

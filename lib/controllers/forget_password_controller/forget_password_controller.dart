@@ -36,10 +36,7 @@ class ForgotPasswordController extends GetxController {
         barrierDismissible: false,
       );
 
-      // ✅ Send reset link
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-
-      // ✅ Close loading dialog
       Get.back();
       Get.offNamed(AppRoutes.login);
 
@@ -48,6 +45,7 @@ class ForgotPasswordController extends GetxController {
         "Check your SPAM folder for the reset link",
         backgroundColor: AppColors.success.withOpacity(0.5),
         colorText: Colors.white,
+        duration: Duration(seconds: 4),
       );
     } catch (e) {
       // ✅ Close loading dialog on error

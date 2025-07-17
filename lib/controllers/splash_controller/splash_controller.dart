@@ -1,5 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants/app_barrels/app_barrels.dart';
 
 class SplashController extends GetxController {
@@ -49,8 +50,17 @@ class SplashController extends GetxController {
     final user = FirebaseAuth.instance.currentUser;
     await Future.delayed(const Duration(milliseconds: 500));
 
-    if (user != null) {
+    final prefs = await SharedPreferences.getInstance();
+    final isLoggedOut = prefs.getBool('isLoggedOut') ?? false;
+
+    await Future.delayed(const Duration(milliseconds: 500));
+
+    if (user != null && !isLoggedOut) {
       Get.offNamed(AppRoutes.main);
+    } else if (isLoggedOut) {
+      // Clear the flag after first use
+      await prefs.remove('isLoggedOut');
+      Get.offNamed(AppRoutes.login);
     } else {
       Get.offNamed(AppRoutes.onboarding);
     }

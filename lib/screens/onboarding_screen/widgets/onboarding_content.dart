@@ -20,7 +20,7 @@ class OnboardContent extends StatelessWidget {
           borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12),bottomRight: Radius.circular(12)),
           child: PNGImagesWidget(
             imageUrl: image,
-            height: 584,
+            height: 550,
             width: 428,
           ),
         ),
