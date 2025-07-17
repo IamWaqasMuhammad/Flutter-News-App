@@ -9,9 +9,8 @@ class OnboardingDotsWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final controller = Get.find<OnboardingController>();
 
-    return Row(
+    return Obx(()=>Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         controller.onboardingData.length,
@@ -28,6 +27,6 @@ class OnboardingDotsWidgets extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )) ;
   }
 }

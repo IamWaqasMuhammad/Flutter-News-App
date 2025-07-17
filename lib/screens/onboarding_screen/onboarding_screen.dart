@@ -13,8 +13,7 @@ class OnboardingScreen extends StatelessWidget {
       body: Column(
         children: [
           OnboardPagesWidget(controller: controller),
-          Obx(
-            () => Padding(
+          Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,7 +23,7 @@ class OnboardingScreen extends StatelessWidget {
                 ],
               ),
             ),
-          ),
+
           SizedBox(
             height: 20,
           ),

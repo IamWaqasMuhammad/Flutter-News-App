@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
 
     return Scaffold(
       body: Center(
-        child: Obx(() => Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SplashLogoWidget(),
@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
             SplashAppNameTaglineTextWidget(),
             SplashLoadingWidget(controller: controller),
           ],
-        )),
+        ),
       ),
     );
   }

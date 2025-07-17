@@ -6,7 +6,7 @@ class SplashLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Obx(()=>Column(
       children: [
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 300),
@@ -18,6 +18,6 @@ class SplashLoadingWidget extends StatelessWidget {
               : null,
         ),
       ],
-    );
+    ));
   }
 }
