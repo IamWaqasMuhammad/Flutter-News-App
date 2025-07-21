@@ -1,7 +1,4 @@
 
-
-
-
 import '../../../constants/app_barrels/app_barrels.dart';
 
 class SignupScreen extends StatelessWidget {

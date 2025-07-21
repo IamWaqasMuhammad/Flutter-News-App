@@ -1,6 +1,6 @@
 
-
 import '../../constants/app_barrels/app_barrels.dart';
+
 import 'app_routes.dart';
 
 class AppPages {
