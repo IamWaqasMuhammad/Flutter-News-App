@@ -6,9 +6,6 @@ export 'package:get/get.dart';
 export 'package:flutter_news_app/bindings/splash_binding/splash_binding.dart';
 export 'package:flutter_news_app/screens/onboarding_screen/onboarding_screen.dart';
 export 'package:flutter_news_app/screens/splash%20_screen/splash_screen.dart';
-export 'package:flutter_news_app/utils/app_routes/app_routes.dart';
-export 'package:flutter_svg/flutter_svg.dart';
-export 'package:flutter_news_app/utils/app_routes/app_pages.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:flutter_news_app/constants/app_colors/app_colors.dart';
 export 'package:flutter_news_app/constants/app_icons/app_icons_assets.dart';
@@ -55,7 +52,10 @@ export 'package:animated_text_kit/animated_text_kit.dart';
 export 'package:flutter_news_app/bindings/forget_password_binding/forget_password_binding.dart';
 export  'package:flutter_news_app/screens/forgot_password_screen/forgot_password_screen.dart';
 export 'package:flutter_news_app/screens/main_screen/main_screen.dart';
-
+export 'package:flutter_news_app/screens/auth_screen/forgot_password_screen/widgets/forget_send_email_link_button_widget.dart';
+export 'package:shared_preferences/shared_preferences.dart';
+export 'package:flutter_news_app/utils/routes/app_pages.dart';
+export 'package:flutter_news_app/utils/routes/app_routes.dart';
 
 
 

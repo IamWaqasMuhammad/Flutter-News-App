@@ -1,6 +1,7 @@
 
-import '../../../constants/app_barrels/app_barrels.dart';
 
+
+import '../../../constants/app_barrels/app_barrels.dart';
 
 class OnboardContent extends StatelessWidget {
   final String title, subtitle, image;

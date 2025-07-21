@@ -1,4 +1,3 @@
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/app_barrels/app_barrels.dart';
 
@@ -20,7 +19,6 @@ class MainScreen extends StatelessWidget {
               await FirebaseAuth.instance.signOut();
               await prefs.setBool('isLoggedOut', true);
               Get.offAllNamed(AppRoutes.login);
-              // Show a message to the user or handle the error appropriately
 
         }, child: Text('Logout')),
       ),

@@ -1,5 +1,6 @@
 import '../../../constants/app_barrels/app_barrels.dart';
-
+import '../../../controllers/onboarding_controller/onboarding_controller.dart';
+import 'onboarding_content.dart';
 class OnboardPagesWidget extends StatelessWidget {
   final OnboardingController controller;
 
