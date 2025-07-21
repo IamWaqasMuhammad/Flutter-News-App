@@ -1,4 +1,5 @@
 
+
 import '../../../constants/app_barrels/app_barrels.dart';
 
 
@@ -10,9 +11,7 @@ class LoginScreen extends StatelessWidget {
     final controller = Get.find<LoginController>();
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
-        child: SafeArea(
+      body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,8 +29,7 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
+        ).paddingHorizontal(18),
     );
   }
 }

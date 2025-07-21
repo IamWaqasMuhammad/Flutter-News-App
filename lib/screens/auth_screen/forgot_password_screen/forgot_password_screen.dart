@@ -11,9 +11,7 @@ class ForgotPasswordScreen extends StatelessWidget {
 
     return Scaffold(
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Column(
+        child:Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -22,8 +20,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               // ✅ Submit Button
               ForgetSendEmailLinkButtonWidget(controller: controller),
             ],
-          ),
-        ),
+          ).paddingHorizontal(18),
       ),
     );
   }

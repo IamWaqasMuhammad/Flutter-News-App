@@ -9,9 +9,7 @@ class SignupScreen extends StatelessWidget {
     final controller = Get.find<SignupController>();
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18),
-        child: SafeArea(
+      body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,8 +28,7 @@ class SignupScreen extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
+        ).paddingHorizontal(18),
     );
   }
 }

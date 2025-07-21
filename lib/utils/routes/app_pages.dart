@@ -1,8 +1,9 @@
 
 
+import 'package:flutter_news_app/bindings/country_picker_binding/country_picker_binding.dart';
+
 import '../../constants/app_barrels/app_barrels.dart';
 
-import 'app_routes.dart';
 
 class AppPages {
   final pages = [
@@ -39,7 +40,7 @@ class AppPages {
     GetPage(
         name: AppRoutes.country,
         page: () => const CountryScreen(),
-        //binding: SignupBinding(),
+        binding: CountryPickerBinding(),
         transition: Transition.fadeIn
     ),
   ];
