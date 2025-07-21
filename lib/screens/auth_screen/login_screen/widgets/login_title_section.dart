@@ -11,7 +11,7 @@ class LoginTitleSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        30.ph,
+        30.height,
         Text(
           AppStringsAssets.loginTitle,
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
@@ -22,7 +22,7 @@ class LoginTitleSection extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        15.ph,
+        15.height,
         Text(
           AppStringsAssets.loginTitle2,
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
@@ -31,7 +31,7 @@ class LoginTitleSection extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        10.ph,
+        10.height,
         Text(
           AppStringsAssets.loginSubTitle,
           style:

@@ -15,7 +15,7 @@ class LoginOrContinueWithGoogle extends StatelessWidget {
             style: Theme.of(context).textTheme.labelLarge,
           ),
         ),
-        10.ph,
+        10.height,
         Center(
           child: CustomIconButtonWidget(
             buttonText: AppStringsAssets.googleButtonText,

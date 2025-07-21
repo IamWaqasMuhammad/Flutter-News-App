@@ -134,7 +134,7 @@ class SignupController extends GetxController {
         colorText: Colors.white,
       );
 
-      Get.offAllNamed(AppRoutes.main);
+      Get.offAllNamed(AppRoutes.country);
     } on FirebaseAuthException catch (e) {
       _closeDialog();
       Get.snackbar(

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 extension SizedBoxExtension on num {
   /// Creates vertical space
-  SizedBox get ph => SizedBox(height: toDouble());
+  SizedBox get height => SizedBox(height: toDouble());
 
   /// Creates horizontal space
-  SizedBox get pw => SizedBox(width: toDouble());
+  SizedBox get width => SizedBox(width: toDouble());
 }

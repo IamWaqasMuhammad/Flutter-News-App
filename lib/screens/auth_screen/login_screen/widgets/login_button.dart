@@ -24,7 +24,7 @@ class LoginButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        10.ph,
+        10.height,
       ],
     );
   }

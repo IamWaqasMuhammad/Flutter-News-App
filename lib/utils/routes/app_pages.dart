@@ -1,4 +1,5 @@
 
+
 import '../../constants/app_barrels/app_barrels.dart';
 
 import 'app_routes.dart';
@@ -30,15 +31,15 @@ class AppPages {
         transition: Transition.fadeIn
     ),
     GetPage(
-        name: AppRoutes.main,
-        page: () => const MainScreen(),
-        //binding: SignupBinding(),
-        transition: Transition.fadeIn
-    ),
-    GetPage(
         name: AppRoutes.forget,
         page: () => const ForgotPasswordScreen(),
         binding: ForgetPasswordBinding(),
+        transition: Transition.fadeIn
+    ),
+    GetPage(
+        name: AppRoutes.country,
+        page: () => const CountryScreen(),
+        //binding: SignupBinding(),
         transition: Transition.fadeIn
     ),
   ];

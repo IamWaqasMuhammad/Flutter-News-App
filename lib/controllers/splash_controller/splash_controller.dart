@@ -1,6 +1,4 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants/app_barrels/app_barrels.dart';
 
 class SplashController extends GetxController {
@@ -56,7 +54,7 @@ class SplashController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 500));
 
     if (user != null && !isLoggedOut) {
-      Get.offAllNamed(AppRoutes.main);
+      Get.offAllNamed(AppRoutes.country);
     } else if (isLoggedOut) {
       // Clear the flag after first use
       await prefs.remove('isLoggedOut');

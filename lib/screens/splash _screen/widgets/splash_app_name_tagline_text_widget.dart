@@ -16,7 +16,7 @@ class SplashAppNameTaglineTextWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        10.ph,
+        10.height,
         // Animated tagline
         AnimatedTextKit(
           animatedTexts: [
@@ -34,7 +34,7 @@ class SplashAppNameTaglineTextWidget extends StatelessWidget {
           displayFullTextOnTap: true,
           isRepeatingAnimation: false,
         ),
-        30.ph,
+        30.height,
 
       ],
     );

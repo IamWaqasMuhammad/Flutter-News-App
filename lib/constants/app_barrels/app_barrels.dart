@@ -55,6 +55,8 @@ export 'package:flutter_news_app/screens/auth_screen/signup_screen/widgets/signu
 export 'package:flutter_news_app/screens/auth_screen/signup_screen/widgets/signup_form_section.dart';
 export 'package:flutter_news_app/screens/auth_screen/signup_screen/widgets/signup_remember_me.dart';
 export 'package:flutter_news_app/screens/auth_screen/signup_screen/widgets/signup_title_section.dart';
+export 'package:flutter_news_app/screens/setup_screen/country_screen/country_screen.dart';
+export 'package:connectivity_plus/connectivity_plus.dart';
 
 
 

@@ -68,7 +68,7 @@ class CustomIconButtonWidget extends StatelessWidget {
                 height: imgHeight,
                 width: imgWidth,
               ),
-              8.pw,
+              8.width,
               Text(
                 buttonText,
                 style: Theme.of(context)

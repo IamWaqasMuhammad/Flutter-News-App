@@ -44,6 +44,7 @@ dependencies:
   animated_text_kit: ^4.2.3
   connectivity_plus: ^6.0.3
   flutter_launcher_icons: ^0.14.4
+  country_picker: ^2.0.27
 
 flutter_icons:
   android: true

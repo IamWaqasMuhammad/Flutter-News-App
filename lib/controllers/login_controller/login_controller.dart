@@ -54,7 +54,7 @@ class LoginController extends GetxController {
           colorText: Colors.white,
         );
 
-        return; // prevent navigation to main page
+        return;
       }
 
       _closeDialog();
@@ -65,7 +65,7 @@ class LoginController extends GetxController {
         colorText: Colors.white,
       );
 
-      Get.offNamed(AppRoutes.main);
+      Get.offNamed(AppRoutes.country);
     } on FirebaseAuthException catch (e) {
       _closeDialog();
       Get.snackbar(

@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SplashLogoWidget(),
-            20.ph,
+            20.height,
             SplashAppNameTaglineTextWidget(),
             SplashLoadingWidget(controller: controller),
           ],

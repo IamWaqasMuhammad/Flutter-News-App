@@ -12,7 +12,7 @@ class ForgetTitleWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        56.ph,
+        56.height,
         Container(
           height: 40,
           width: 40,
@@ -26,7 +26,7 @@ class ForgetTitleWidget extends StatelessWidget {
             icon: Icon(Icons.arrow_back_outlined),color: AppColors.disabledInput,),
         ),
 
-        20.ph,
+        20.height,
 
         Text(
           AppStringsAssets.forgetTitle,
@@ -36,14 +36,14 @@ class ForgetTitleWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        12.ph,
+        12.height,
 
         Text(
           AppStringsAssets.forgetSubTitle,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
 
-        40.ph,
+        40.height,
       ],
     );
   }
