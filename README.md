@@ -1,4 +1,4 @@
-# 📱 Khabar App   
+# 📱 Khabar App  
 
 **Khabar App** is a real-time, API-based news application built with **Flutter**, featuring a clean, scalable, and modular architecture. It integrates **Firebase Authentication**, **Firestore**, **Realtime Database**, and **MongoDB** to provide a secure and interactive news experience where users can browse, post, comment, like, and share news articles globally.
 
